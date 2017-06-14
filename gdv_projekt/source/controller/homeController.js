@@ -34,7 +34,7 @@
 		// SELECT COUNTRY
 		
 		$scope.selectedCountries = [];
-		$scope.loadCountries = false;
+		$scope.countriesLoaded = false;
 		
 		function getSelectedCountries(){
 			$scope.selectedCountries = countryService.getSelectedCountries();
@@ -48,8 +48,13 @@
 			return $.inArray(country, $scope.selectedCountries) < 0 ? false : true;
 		}
 		
+		$scope.loadCountries = function(){
+			$scope.countriesLoaded = true;
+			$rootScope.$broadcast("countries:load");
+		}
+		
 		$scope.$watch("selectedCountries", function(){
-			if($scope.selectedCountries.length == 0) $scope.loadCountries = false;
+			if($scope.selectedCountries.length == 0) $scope.countriesLoaded = false;
 		}, true);
 		
 		$scope.$on("selectedCountries:updated", function(){

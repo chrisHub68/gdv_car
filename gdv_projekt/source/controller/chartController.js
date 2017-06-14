@@ -4,26 +4,17 @@
 	function ChartController($rootScope, $scope, countryService, restService) {
 		
 		$scope.$on("selectedCountries:updated", function(){
-			angular.forEach(countryService.getSelectedCountries(), function(v,k){
-				countryService.getCountry(v).then(function(data){
-					initPiechart(k,data);
-				});
-			});
+
 		});
 
-		function initPiechart(index, country) {
+		function initPiechart() {
 			google.charts.load("current", {"packages" : [ "corechart" ]});
 			google.charts.setOnLoadCallback(drawChart);
 
 			function drawChart() {
-				var cars = {};
-				angular.forEach(country.cars, function(k,car){
-					angular.forEach(car, function(carName, queries){
-						for(var query in queries){
-							//restService.getClicks(query.languageVersion, query.searchQuery);
-						}
-					});
-				});
+				var cars = [];
+				cars.push(["Automarke" , "Klicks"]);
+			
 				
 				var data = google.visualization.arrayToDataTable([
 						[ 'Task', 'Hours per Day' ], [ 'Work', 11 ],
@@ -45,7 +36,7 @@
 	}
 
 	var app = angular.module("gdvProjekt");
-	app.controller("ChartController", [ '$rootScope', '$scope', 'countryService', 'restService'
+	app.controller("ChartController", [ '$rootScope', '$scope', 'countryService', 'restService',
 			ChartController ]);
 
 })(window.angular);

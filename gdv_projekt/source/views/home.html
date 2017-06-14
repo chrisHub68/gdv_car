@@ -64,11 +64,11 @@
 		
 		<br><br>
 		
-		<button class="btn btn-default" ng-click="loadCountries = true" ng-disabled="selectedCountries.length == 0">Laden...</button>
+		<button class="btn btn-default" ng-click="loadCountries()" ng-disabled="selectedCountries.length == 0">Laden...</button>
 		
 		<br><br>
 
-		<div class="row" ng-show="loadCountries" ng-controller="ChartController">				
+		<div class="row" ng-show="countriesLoaded" ng-controller="ChartController">				
 			<div ng-if="selectedCountries.length == 1">
 				<div class="col-lg-2 col-md-4"></div>
 				<div class="col-lg-4 col-md-4"><div id="piechart1"></div></div>		
