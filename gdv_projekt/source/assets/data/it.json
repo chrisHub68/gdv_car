@@ -1,0 +1,74 @@
+{	
+	"name" : "Italien",
+	"cars" : [
+        {
+            "Alfa Romeo" : [ 
+                {"Sprachversion":"de", "Suchanfrage":"Alfa_Romeo"},
+                {"Sprachversion":"en", "Suchanfrage":"Alfa_Romeo"},
+                {"Sprachversion":"fr", "Suchanfrage":"Alfa_Romeo"},
+                {"Sprachversion":"ja", "Suchanfrage":"アルファロメオ"},
+		{"Sprachversion":"it", "Suchanfrage":"Alfa_Romeo"}
+            ]
+        },
+	{
+            "Ferrari": [
+                {"Sprachversion":"de", "Suchanfrage":"Ferrari"},
+                {"Sprachversion":"en", "Suchanfrage":"Ferrari"},
+                {"Sprachversion":"fr", "Suchanfrage":"Ferrari_(entreprise)"},
+                {"Sprachversion":"ja", "Suchanfrage":"フェラーリ"},
+		{"Sprachversion":"it", "Suchanfrage":"Ferrari"}
+            ]
+        },
+
+        {
+            "Fiat" : [
+                {"Sprachversion":"de", "Suchanfrage":"Fiat_(Marke)"},
+                {"Sprachversion":"en", "Suchanfrage":"Fiat_Automobiles"},
+                {"Sprachversion":"fr", "Suchanfrage":"Fiat"},
+                {"Sprachversion":"ja", "Suchanfrage":"フィアット"},
+		{"Sprachversion":"it", "Suchanfrage":"FIAT"}
+            ]
+        },
+
+        {
+            "Lamborghini" : [
+                {"Sprachversion":"de", "Suchanfrage":"Lamborghini"},
+                {"Sprachversion":"en", "Suchanfrage":"Lamborghini"},
+                {"Sprachversion":"fr", "Suchanfrage":"Lamborghini"},
+                {"Sprachversion":"ja", "Suchanfrage":"ランボルギーニ"},
+		{"Sprachversion":"it", "Suchanfrage":"Lamborghini"}
+            ]
+        },
+
+        {
+            "Lancia" : [
+                {"Sprachversion":"de", "Suchanfrage":"Lancia"},
+                {"Sprachversion":"en", "Suchanfrage":"Lancia"},
+                {"Sprachversion":"fr", "Suchanfrage":"Lancia"},
+                {"Sprachversion":"ja", "Suchanfrage":"ランチア"}, 
+		{"Sprachversion":"it", "Suchanfrage":"Lancia_(azienda)"}
+            ]
+        },
+
+        {
+            "Maserati" : [
+                {"Sprachversion":"de", "Suchanfrage":"Maserati"},
+                {"Sprachversion":"en", "Suchanfrage":"Maserati"},
+                {"Sprachversion":"fr", "Suchanfrage":"Maserati"},
+                {"Sprachversion":"ja", "Suchanfrage":"マセラティ"},
+		{"Sprachversion":"it", "Suchanfrage":"Maserati"}
+            ]
+        },
+
+        {
+            "Pangani" : [
+                {"Sprachversion":"de", "Suchanfrage":"Pagani_Automobili"},
+                {"Sprachversion":"en", "Suchanfrage":"Pagani_(company)"},
+                {"Sprachversion":"fr", "Suchanfrage":"Pagani_(entreprise)"},
+                {"Sprachversion":"ja", "Suchanfrage":"パガーニ・アウトモビリ"},
+		{"Sprachversion":"it", "Suchanfrage":"Pagani_Automobili"}
+            ]
+        }
+
+	]
+}

@@ -1,0 +1,44 @@
+{
+    "name" : "Frankreich",
+    "cars" :   [
+        {
+            "Citroën" : [
+                {"languageVersion":"de", "searchquery":"Citroën"},
+                {"languageVersion":"en", "searchquery":"Citroën"},
+                {"languageVersion":"fr", "searchquery":"Citroën"},
+                {"languageVersion":"it", "searchquery":"Citroën"},
+                {"languageVersion":"ja", "searchquery":"Citroën"}
+            ]
+        },
+
+        {
+            "Ligier" : [
+                {"languageVersion":"de", "searchquery":"Groupe_Ligier"},
+                {"languageVersion":"en", "searchquery":"Ligier"},
+                {"languageVersion":"fr", "searchquery":"Ligier"},
+                {"languageVersion":"it", "searchquery":"Ligier"},
+                {"languageVersion":"ja", "searchquery":"リジェ"}
+            ]
+        },
+
+        {
+            "Peuggeot" : [
+                {"languageVersion":"de", "searchquery":"Peugeot"},
+                {"languageVersion":"en", "searchquery":"Peugeot"},
+                {"languageVersion":"fr", "searchquery":"Peugeot"},
+                {"languageVersion":"it", "searchquery":"Peugeot"},
+                {"languageVersion":"ja", "searchquery":"プジョー"}
+            ]
+        },
+
+        {
+            "Renault" : [
+                {"languageVersion":"de", "searchquery":"Renault"},
+                {"languageVersion":"en", "searchquery":"Renault"},
+                {"languageVersion":"fr", "searchquery":"Renault"},
+                {"languageVersion":"it", "searchquery":"Renault"},
+                {"languageVersion":"ja", "searchquery":"ルノー"}
+            ]
+        }
+    ]
+}
