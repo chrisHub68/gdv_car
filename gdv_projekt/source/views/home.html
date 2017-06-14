@@ -1,0 +1,103 @@
+<div ng-controller="HomeController" id="page-top" data-spy="scroll"
+	data-target=".navbar-fixed-top">
+
+	<!-- Navigation -->
+	<nav class="navbar navbar-custom navbar-fixed-top" role="navigation">
+		<div class="container">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle" data-toggle="collapse"
+					data-target=".navbar-main-collapse">
+					Menu <i class="fa fa-bars"></i>
+				</button>
+				<a class="navbar-brand page-scroll" href="#page-top"> <i
+					class="fa fa-car"></i> Home
+				</a>
+			</div>
+
+			<div
+				class="collapse navbar-collapse navbar-right navbar-main-collapse">
+				<ul class="nav navbar-nav">
+					<li class="hidden"><a href="#page-top"></a></li>
+					<li><a class="page-scroll" href="#about">Statistik</a></li>
+					<li><a class="page-scroll" href="#download">Impressum</a></li>
+				</ul>
+			</div>
+		</div>
+	</nav>
+
+	<!-- Intro Header -->
+	<header class="intro">
+		<div class="bottom-fade"></div>
+		<div class="intro-body">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-8 col-md-offset-2">
+						<h1 class="brand-heading">GDV Projekt</h1>
+						<p class="intro-text">Ein Projekt in GDV zur Auswertung von
+							Autostatistiken in Europa.</p>
+						<a href="#visualization" class="btn btn-circle page-scroll"> <i
+							class="fa fa-angle-double-down animated"></i>
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</header>
+
+	<!-- Visualization -->
+	<section id="visualization"
+		class="container content-section text-center">
+		<div class="row">
+			<div class="flag-container grayscale-80" ng-class="{'grayscale-0' : containsCountry('de')}" ng-click="setSelectedCountry('de')">
+				<span class="flag-icon flag-icon-de"></span>
+			</div>
+			<div class="flag-container grayscale-80" ng-class="{'grayscale-0' : containsCountry('it')}" ng-click="setSelectedCountry('it')">
+				<span class="flag-icon flag-icon-it"></span>
+			</div>
+			<div class="flag-container grayscale-80" ng-class="{'grayscale-0' : containsCountry('jp')}" ng-click="setSelectedCountry('jp')">
+				<span class="flag-icon flag-icon-jp"></span>
+			</div>
+			<div class="flag-container grayscale-80" ng-class="{'grayscale-0' : containsCountry('fr')}" ng-click="setSelectedCountry('fr')">
+				<span class="flag-icon flag-icon-fr"></span>
+			</div>
+		</div>
+		
+		<br><br>
+		
+		<button class="btn btn-default" ng-click="loadCountries = true" ng-disabled="selectedCountries.length == 0">Laden...</button>
+		
+		<br><br>
+
+		<div class="row" ng-show="loadCountries" ng-controller="ChartController">				
+			<div ng-if="selectedCountries.length == 1">
+				<div class="col-lg-2 col-md-4"></div>
+				<div class="col-lg-4 col-md-4"><div id="piechart1"></div></div>		
+				<div class="col-lg-4 col-md-4"></div>
+			</div>
+		
+			<div ng-if="selectedCountries.length == 2">
+				<div class="col-lg-2 col-md-2"></div>
+				<div class="col-lg-4 col-md-4"><div id="piechart1"></div></div>	
+				<div class="col-lg-4 col-md-4"><div id="piechart2"></div></div>	
+				<div class="col-lg-2 col-md-2"></div>
+			</div>
+		</div>
+
+	</section>
+
+	<!-- Impressum -->
+	<section id="impressum" class="content-section text-center">
+		<div class="download-section">
+			<div class="container">
+				<div class="col-lg-8 col-lg-offset-2">
+					<h2>Impressum</h2>
+					<p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed
+						diam nonumy eirmod tempor invidunt ut labore et dolore magna
+						aliquyam erat, sed diam voluptua.</p>
+					<a href="https://www.hs-mannheim.de/"
+						class="btn btn-default btn-lg">Hochschule Mannheim</a>
+				</div>
+			</div>
+		</div>
+	</section>
+</div>

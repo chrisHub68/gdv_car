@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>GDV Projekt</title>
+
+<!-- LIBS -->
+<script type="text/javascript" src="assets/libs/jquery/jquery-3.2.1.min.js"></script>
+<script type="text/javascript" src="assets/libs/jquery/jquery.easing.min.js"></script>
+<script type="text/javascript" src="assets/libs/angular/angular.min.js"></script>
+<script type="text/javascript" src="assets/libs/angular/angular-route.js"></script>
+<script type="text/javascript" src="assets/libs/bootstrap/bootstrap.min.js"></script>
+<script type="text/javascript" src="assets/libs/bootstrap/ui-bootstrap-tpls-2.5.0.min.js"></script>
+
+<!-- GOOGLE CHARTS -->
+ <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+
+<!-- APPLICATION -->
+<script type="text/javascript" src="application.js"></script>
+
+<!-- CONTROLLER -->
+<script type="text/javascript" src="controller/mainController.js"></script>
+<script type="text/javascript" src="controller/homeController.js"></script>
+<script type="text/javascript" src="controller/chartController.js"></script>
+
+<!-- SERVICES -->
+<script type="text/javascript" src="service/countryService.js"></script>
+<script type="text/javascript" src="service/jsonService.js"></script>
+<script type="text/javascript" src="service/restService.js"></script>
+
+<!-- CSS -->
+<link rel="stylesheet" href="assets/css/style.css">
+<link rel="stylesheet" href="assets/libs/bootstrap/bootstrap.min.css">
+<link rel="stylesheet" href="assets/css/fontawesome/font-awesome.min.css">
+<link rel="stylesheet" href="assets/css/grayscale/grayscale.min.css">
+<link rel="stylesheet" href="assets/css/flag-icon-css/css/flag-icon.css">
+<link rel="stylesheet" href="assets/css/flag-icon-css/css/flag-icon.min.css">
+
+<!-- FONTS -->
+<link href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet" type="text/css">
+<link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
+
+</head>
+<body ng-app="gdvProjekt" ng-controller="MainController">
+	<ng-view></ng-view>
+</body>
+</html>

@@ -1,0 +1,85 @@
+{	
+	"name" : "Deutschland",
+	"cars" : [
+        {
+            "Audi" : [ 
+                {"Sprachversion":"de", "Suchanfrage":"Audi"},
+                {"Sprachversion":"en", "Suchanfrage":"Audi"},
+                {"Sprachversion":"fr", "Suchanfrage":"Audi"},
+                {"Sprachversion":"ja", "Suchanfrage":"アウディ"}
+            ]
+        },
+
+        {
+            "BMW": [
+                {"Sprachversion":"de", "Suchanfrage":"BMW"},
+                {"Sprachversion":"en", "Suchanfrage":"BMW"},
+                {"Sprachversion":"fr", "Suchanfrage":"Bayerische Motoren Werke"},
+                {"Sprachversion":"ja", "Suchanfrage":"BMW"}
+            ]
+        },
+
+        {
+            "Bugatti" : [
+                {"Sprachversion":"de", "Suchanfrage":"Bugatti"},
+                {"Sprachversion":"en", "Suchanfrage":"Bugatti"},
+                {"Sprachversion":"fr", "Suchanfrage":"Bugatti"},
+                {"Sprachversion":"ja", "Suchanfrage":"ブガッティ"}
+            ]
+        },
+
+        {
+            "Mercedes-Benz" : [
+                {"Sprachversion":"de", "Suchanfrage":"Mercedes-Benz"},
+                {"Sprachversion":"en", "Suchanfrage":"Mercedes-Benz"},
+                {"Sprachversion":"fr", "Suchanfrage":"Mercedes-Benz"},
+                {"Sprachversion":"ja", "Suchanfrage":"メルセデス・ベンツ"}
+            ]
+        },
+
+        {
+            "Maybach" : [
+                {"Sprachversion":"de", "Suchanfrage":"Maybach-Manufaktur"},
+                {"Sprachversion":"en", "Suchanfrage":"Maybach"},
+                {"Sprachversion":"fr", "Suchanfrage":"Maybach"},
+                {"Sprachversion":"ja", "Suchanfrage":"マイバッハ"} 
+            ]
+        },
+
+        {
+            "Opel" : [
+                {"Sprachversion":"de", "Suchanfrage":"Opel"},
+                {"Sprachversion":"en", "Suchanfrage":"Opel"},
+                {"Sprachversion":"fr", "Suchanfrage":"Opel"},
+                {"Sprachversion":"ja", "Suchanfrage":"オペル"}
+            ]
+        },
+
+        {
+            "Porsche" : [
+                {"Sprachversion":"de", "Suchanfrage":"Porsche"},
+                {"Sprachversion":"en", "Suchanfrage":"Porsche"},
+                {"Sprachversion":"fr", "Suchanfrage":"Porsche"},
+                {"Sprachversion":"ja", "Suchanfrage":"ポルシェ"}
+            ]
+        },
+
+        {
+            "Smart" : [
+                {"Sprachversion":"de", "Suchanfrage":"Smart_(Automarke)"},
+                {"Sprachversion":"en", "Suchanfrage":"Smart_(marque)"},
+                {"Sprachversion":"fr", "Suchanfrage":"Smart"},
+                {"Sprachversion":"ja", "Suchanfrage":"スマート_(自動車)"}
+            ]
+        },
+
+        {
+            "VW" : [
+                {"Sprachversion":"de", "Suchanfrage":"Volkswagen"},
+                {"Sprachversion":"en", "Suchanfrage":"Volkswagen"},
+                {"Sprachversion":"fr", "Suchanfrage":"Volkswagen"},
+                {"Sprachversion":"ja", "Suchanfrage":"フォルクスワーゲン"}
+            ]
+        }
+	]
+}
