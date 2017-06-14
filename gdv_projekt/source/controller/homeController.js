@@ -50,7 +50,6 @@
 		
 		$scope.loadCountries = function(){
 			$scope.countriesLoaded = true;
-			$rootScope.$broadcast("countries:load");
 		}
 		
 		$scope.$watch("selectedCountries", function(){

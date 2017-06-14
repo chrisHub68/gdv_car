@@ -1,10 +1,23 @@
 function CountryService($rootScope, $http, JSONService, restService) {
 	var _selectedCountries = [];
-	var _countries = {"de" : {}};
+	var _countries = {"de" : {} , "it" : {}, "ja" : {}, "fr" : {}};
 	
 	angular.forEach(_countries, function(country, languageVersion){
 		_getCountryJSON(languageVersion).then(function(data){
 			_countries[languageVersion] = data;
+			
+			angular.forEach(_countries[languageVersion]["cars"], function(car, languageVersion){
+				angular.forEach(car, function(articles,k){
+					angular.forEach(articles, function(article, articleName){
+						if(article.languageVersion && article.searchquery)
+						restService.getClicks(article.languageVersion, article.searchquery).then(function(data){
+							angular.forEach(data.items, function(month,k){
+								article.views = month.views;
+							});
+						});
+					});
+				});
+			});
 		});
 	});
 	
@@ -25,22 +38,6 @@ function CountryService($rootScope, $http, JSONService, restService) {
 	this.getCountry = function(languageVersion){
 		return _countries[languageVersion];
 	}
-	
-	$rootScope.$on("countries:load", function(){
-		angular.forEach(_countries, function(country, languageVersion){
-			angular.forEach(country["cars"], function(article,k){
-				angular.forEach(article, function(views, articleName){
-					angular.forEach(views, function(view, k){
-						restService.getClicks(view.languageVersion, view.searchquery).then(function(data){
-							angular.forEach(data.items, function(month,k){
-								view.views = month.views;
-							});
-						});
-					});
-				});
-			});
-		});
-	});
 }
 
 var app = angular.module("gdvProjekt");
