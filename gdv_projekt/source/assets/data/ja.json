@@ -1,0 +1,113 @@
+{
+    "name" : "Japan",
+    "cars" : [
+        {
+            "Acura" : [
+                {"languageVersion":"de", "searchquery":"Acura"},
+                {"languageVersion":"en", "searchquery":"Acura"},
+                {"languageVersion":"fr", "searchquery":"Acura"},
+                {"languageVersion":"ir", "searchquery":"Acura"},
+                {"languageVersion":"ja", "searchquery":"アキュラ"}
+            ]
+        },
+
+        {
+            "Daihatsu" : [
+                {"languageVersion":"de", "searchquery":"Daihatsu"},
+                {"languageVersion":"en", "searchquery":"Daihatsu"},
+                {"languageVersion":"fr", "searchquery":"Daihatsu"},
+                {"languageVersion":"it", "searchquery":"Daihatsu"},
+                {"languageVersion":"ja", "searchquery":"ダイハツ工業"}
+            ]
+        },
+
+        {
+            "Honda" : [
+                {"languageVersion":"de", "searchquery":"Honda"},
+                {"languageVersion":"en", "searchquery":"Honda"},
+                {"languageVersion":"fr", "searchquery":"Honda"},
+                {"languageVersion":"it", "searchquery":"Honda"},
+                {"languageVersion":"ja", "searchquery":"本田技研工業"}
+            ]
+        },
+
+        {
+            "Isuzu" : [
+                {"languageVersion":"de", "searchquery":"Isuzu"},
+                {"languageVersion":"en", "searchquery":"Isuzu_Motors"},
+                {"languageVersion":"fr", "searchquery":"Isuzu"},
+                {"languageVersion":"it", "searchquery":"Isuzu"},
+                {"languageVersion":"ja", "searchquery":"いすゞ自動車"}
+            ]
+        },
+
+        {
+            "Lexus" : [
+                {"languageVersion":"de", "searchquery":"Lexus"},
+                {"languageVersion":"en", "searchquery":"Lexus"},
+                {"languageVersion":"fr", "searchquery":"Lexus"},
+                {"languageVersion":"ja", "searchquery":"レクサス"}
+            ]
+        },
+
+        {
+            "Mazda" : [
+                {"languageVersion":"de", "searchquery":"Mazda"},
+                {"languageVersion":"en", "searchquery":"Mazda"},
+                {"languageVersion":"fr", "searchquery":"Mazda_(automobiles)"},
+                {"languageVersion":"it", "searchquery":"Mazda"},
+                {"languageVersion":"ja", "searchquery":"マツダ"}
+            ]
+        },
+
+        {
+            "Mitsubishi" : [
+                {"languageVersion":"de", "searchquery":"Mitsubishi"},
+                {"languageVersion":"en", "searchquery":"Mitsubishi"},
+                {"languageVersion":"fr", "searchquery":"Mitsubishi"},
+                {"languageVersion":"it", "searchquery":"Mitsubishi"},
+                {"languageVersion":"ja", "searchquery":"三菱グループ"}  
+            ]
+        },
+
+        {
+            "Nissan" : [
+                {"languageVersion":"de", "searchquery":"Nissan"},
+                {"languageVersion":"en", "searchquery":"Nissan"},
+                {"languageVersion":"fr", "searchquery":"Nissan"},
+                {"languageVersion":"it", "searchquery":"Nissan_Motor"},
+                {"languageVersion":"ja", "searchquery":"日産自動車"}  
+            ]
+        },
+
+        {
+            "Subaru" : [
+                {"languageVersion":"de", "searchquery":"Subaru"},
+                {"languageVersion":"en", "searchquery":"Subaru"},
+                {"languageVersion":"fr", "searchquery":"Subaru"},
+                {"languageVersion":"it", "searchquery":"Subaru_(azienda)"},
+                {"languageVersion":"ja", "searchquery":"SUBARU_(自動車)"} 
+            ]
+        },
+
+        {
+            "Suzuki" : [
+                {"languageVersion":"de", "searchquery":"Suzuki"},
+                {"languageVersion":"en", "searchquery":"Suzuki"},
+                {"languageVersion":"fr", "searchquery":"Suzuki"},
+                {"languageVersion":"it", "searchquery":"Suzuki"},
+                {"languageVersion":"ja", "searchquery":"スズキ_(企業)"}
+            ]
+        },
+
+        {
+            "Toyota" : [
+                {"languageVersion":"de", "searchquery":"Toyota"},
+                {"languageVersion":"en", "searchquery":"Toyota"},
+                {"languageVersion":"fr", "searchquery":"Toyota"},
+                {"languageVersion":"it", "searchquery":"Toyota"},
+                {"languageVersion":"ja", "searchquery":"トヨタ自動車"} 
+            ]
+        }
+    ]
+}
