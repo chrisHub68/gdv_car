@@ -1,16 +1,28 @@
 (function(angular) {
 	'use strict';
 
-	function ChartController($rootScope, $scope, JSONService) {
+	function ChartController($rootScope, $scope, countryService, restService) {
+		
+		$scope.$on("selectedCountries:updated", function(){
+			angular.forEach(countryService.getSelectedCountries(), function(v,k){
+				countryService.getCountry(v).then(function(data){
+					initPiechart(k,data);
+				});
+			});
+		});
 
-		function initBarchart(containerName, country) {
+		function initPiechart(index, country) {
 			google.charts.load("current", {"packages" : [ "corechart" ]});
 			google.charts.setOnLoadCallback(drawChart);
 
 			function drawChart() {
 				var cars = {};
-				angular.forEach(country.cars, function(k,v){
-					// .....
+				angular.forEach(country.cars, function(k,car){
+					angular.forEach(car, function(carName, queries){
+						for(var query in queries){
+							//restService.getClicks(query.languageVersion, query.searchQuery);
+						}
+					});
 				});
 				
 				var data = google.visualization.arrayToDataTable([
@@ -27,14 +39,13 @@
 					legend : "none",
 					colors:["#22AA99", "#4cad9d", "#6aa99b", "#87a79b", "#0f9c93"]
 				};
-
-				new google.visualization.PieChart(document.getElementById(containerName + "Piechart")).draw(data, options);
+				new google.visualization.PieChart(document.getElementById("piechart" + ++index)).draw(data, options);
 			}
 		}
 	}
 
 	var app = angular.module("gdvProjekt");
-	app.controller("ChartController", [ '$rootScope', '$scope', 'JSONService',
+	app.controller("ChartController", [ '$rootScope', '$scope', 'countryService', 'restService'
 			ChartController ]);
 
 })(window.angular);

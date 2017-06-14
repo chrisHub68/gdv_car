@@ -48,6 +48,10 @@
 			return $.inArray(country, $scope.selectedCountries) < 0 ? false : true;
 		}
 		
+		$scope.$watch("selectedCountries", function(){
+			if($scope.selectedCountries.length == 0) $scope.loadCountries = false;
+		}, true);
+		
 		$scope.$on("selectedCountries:updated", function(){
 			getSelectedCountries();
 		});

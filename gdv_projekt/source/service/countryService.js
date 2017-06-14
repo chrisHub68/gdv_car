@@ -1,4 +1,4 @@
-function CountryService($rootScope, $http) {
+function CountryService($rootScope, $http, JSONService) {
 	var _selectedCountries = [];
 	
 	this.getSelectedCountries = function getSelectedCountries() {
@@ -6,11 +6,15 @@ function CountryService($rootScope, $http) {
 	};
 	
 	this.setSelectedCountry = function setSelectedCountry(country){
-		$.inArray(country, _selectedCountries) > -1 ?_selectedCountries.splice(_selectedCountries.indexOf(country),1) : _selectedCountries.length < 2 ? _selectedCountries.push(country) : (_selectedCountries.splice(0,1), _selectedCountries.push(country));
-				
+		$.inArray(country, _selectedCountries) > -1 ?_selectedCountries.splice(_selectedCountries.indexOf(country),1) 
+				: _selectedCountries.length < 2 ? _selectedCountries.push(country) : (_selectedCountries.splice(0,1), _selectedCountries.push(country));		
 		$rootScope.$broadcast("selectedCountries:updated");
+	}
+	
+	this.getCountry = function(countryName){
+		return JSONService.getJSON(countryName);
 	}
 }
 
 var app = angular.module("gdvProjekt");
-app.service("countryService", CountryService);
+app.service("countryService",  ["$rootScope", "$http", "JSONService", CountryService]);

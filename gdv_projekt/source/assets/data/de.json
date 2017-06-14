@@ -1,0 +1,84 @@
+{
+   "name" : "Deutschland",
+   "cars" : [
+        {
+            "Audi" : [ 
+                {"languageVersion":"de", "searchquery":"Audi"},
+                {"languageVersion":"en", "searchquery":"Audi"},
+                {"languageVersion":"fr", "searchquery":"Audi"},
+                {"languageVersion":"it", "searchquery":"Audi"},
+                {"languageVersion":"ja", "searchquery":"アウディ"}
+            ]
+        },
+
+        {
+            "BMW": [
+                {"languageVersion":"de", "searchquery":"BMW"},
+                {"languageVersion":"en", "searchquery":"BMW"},
+                {"languageVersion":"fr", "searchquery":"Bayerische Motoren Werke"},
+                {"languageVersion":"it", "searchquery":"BMW"},
+                {"languageVersion":"ja", "searchquery":"BMW"}
+            ]
+        },
+
+        {
+            "Bugatti" : [
+                {"languageVersion":"de", "searchquery":"Bugatti"},
+                {"languageVersion":"en", "searchquery":"Bugatti"},
+                {"languageVersion":"fr", "searchquery":"Bugatti"},
+                {"languageVersion":"it", "searchquery":"Bugatti"},
+                {"languageVersion":"ja", "searchquery":"ブガッティ"}
+            ]
+        },
+
+        {
+            "Mercedes-Benz" : [
+                {"languageVersion":"de", "searchquery":"Mercedes-Benz"},
+                {"languageVersion":"en", "searchquery":"Mercedes-Benz"},
+                {"languageVersion":"fr", "searchquery":"Mercedes-Benz"},
+                {"languageVersion":"it", "searchquery":"Mercedes-Benz"},
+                {"languageVersion":"ja", "searchquery":"メルセデス・ベンツ"}
+            ]
+        },
+
+        {
+            "Opel" : [
+                {"languageVersion":"de", "searchquery":"Opel"},
+                {"languageVersion":"en", "searchquery":"Opel"},
+                {"languageVersion":"fr", "searchquery":"Opel"},
+                {"languageVersion":"it", "searchquery":"Opel"},
+                {"languageVersion":"ja", "searchquery":"オペル"}
+            ]
+        },
+
+        {
+            "Porsche" : [
+                {"languageVersion":"de", "searchquery":"Porsche"},
+                {"languageVersion":"en", "searchquery":"Porsche"},
+                {"languageVersion":"fr", "searchquery":"Porsche"},
+                {"languageVersion":"it", "searchquery":"Porsche"},
+                {"languageVersion":"ja", "searchquery":"ポルシェ"}
+            ]
+        },
+
+        {
+            "Smart" : [
+                {"languageVersion":"de", "searchquery":"Smart_(Automarke)"},
+                {"languageVersion":"en", "searchquery":"Smart_(marque)"},
+                {"languageVersion":"fr", "searchquery":"Smart"},
+                {"languageVersion":"it", "searchquery":"Smart"},
+                {"languageVersion":"ja", "searchquery":"スマート_(自動車)"}
+            ]
+        },
+
+        {
+            "VW" : [
+                {"languageVersion":"de", "searchquery":"Volkswagen"},
+                {"languageVersion":"en", "searchquery":"Volkswagen"},
+                {"languageVersion":"fr", "searchquery":"Volkswagen"},
+                {"languageVersion":"it", "searchquery":"Volkswagen"},
+                {"languageVersion":"ja", "searchquery":"フォルクスワーゲン"}
+            ]
+        }
+    ]
+}
