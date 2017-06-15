@@ -41,6 +41,20 @@ function CountryService($rootScope, $http, JSONService, restService) {
 	this.getCountry = function(languageVersion){
 		return _countries[languageVersion];
 	}
+	
+	this.getBrand = function(brand){
+		var value;
+		
+		angular.forEach(_countries, function(country, languageVersion){
+			angular.forEach(country["cars"], function(articles, brandName){
+				if(articles[brand]){
+					value = articles[brand];
+				}
+			});
+		});
+		
+		return value;
+	}
 }
 
 var app = angular.module("gdvProjekt");
