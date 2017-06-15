@@ -75,27 +75,31 @@
 				var cars = [];
 				
 				if($scope.selectedBrands.length == 1) 
-					cars.push(["Land", $scope.selectedBrands[0]], ["Deutschland", 0], ["Italien", 0], ["Japan", 0], ["Frankreich", 0]);
+					cars.push(["Land", $scope.selectedBrands[0]], ["Deutsch", 0], ["Italienisch", 0], ["Japanisch", 0], ["Franzoesisch", 0], ["Englisch", 0]);
 				
 				if($scope.selectedBrands.length == 2)
-					cars.push(["Land", $scope.selectedBrands[0] , $scope.selectedBrands[1]], ["Deutschland", 0 , 0], ["Italien", 0, 0], ["Japan", 0, 0], ["Frankreich", 0, 0]);
+					cars.push(["Land", $scope.selectedBrands[0] , $scope.selectedBrands[1]], ["Deutsch", 0 , 0], ["Italienisch", 0, 0], ["Japanisch", 0, 0], ["Franzoesisch", 0], ["Englisch", 0]);
 
 				
 				angular.forEach($scope.selectedBrands, function(brand, index){
 					index++;
 					angular.forEach(countryService.getBrand(brand), function(article, key){
-						console.log(article)
+						console.log(article);
+						
+						var views = 0;
+						
+						angular.forEach(article.months, function(month,k){
+							views += month.views;
+							console.log(views);
+						}); 
+						
 						for (var i = 1; i < cars.length; i++) {
-							var views = 0;
 							
-							angular.forEach(article.months, function(month,k){
-								views += month.views;
-							});
-							
-							if(article.languageVersion == "de") cars[1][1] += views;
-							if(article.languageVersion == "it") cars[2][1] += views;
-							if(article.languageVersion == "ja") cars[3][1] += views;
-							if(article.languageVersion == "fr") cars[4][1] += views;
+							if(article.languageVersion == "de") cars[1][1] = views;
+							if(article.languageVersion == "it") cars[2][1] = views;
+							if(article.languageVersion == "ja") cars[3][1] = views;
+							if(article.languageVersion == "fr") cars[4][1] = views;
+							if(article.languageVersion == "en") cars[5][1] = views;
 						}
 					});
 				});
