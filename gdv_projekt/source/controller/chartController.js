@@ -38,13 +38,16 @@
 					title : country.name,
 					titleTextStyle : {color: "#FFFFFF", fontName : "Montserrat"},
 					backgroundColor : "#000000",
-					width: 500,
-					height: 500,
 					legend : "none",
-					colors:["#22AA99", "#4cad9d", "#6aa99b", "#87a79b", "#0f9c93"]
+					width: "100%",
+					height: "100%",
+					chartArea:{top:0},
+					colors:["#22AA99"]
 				};
 
-				new google.visualization.PieChart(document.getElementById("piechart" + index)).draw(data, options);
+				$scope.$applyAsync(function(){
+					new google.visualization.PieChart(document.getElementById("piechart" + index)).draw(data, options);
+				});
 			}
 		}
 	}
