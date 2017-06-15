@@ -23,7 +23,9 @@
 						var views = 0;
 						
 						angular.forEach(articles, function(article, k){
-							views += article.views;
+							angular.forEach(article.months, function(month, k){
+								views += month.views;
+							});
 						});
 						
 						cars.push([brand, views])

@@ -9,10 +9,13 @@ function CountryService($rootScope, $http, JSONService, restService) {
 			angular.forEach(_countries[languageVersion]["cars"], function(car, languageVersion){
 				angular.forEach(car, function(articles,k){
 					angular.forEach(articles, function(article, articleName){
+						article.months = [];
+						
 						if(article.languageVersion && article.searchquery)
 						restService.getClicks(article.languageVersion, article.searchquery).then(function(data){
 							angular.forEach(data.items, function(month,k){
-								article.views = month.views;
+								var timestamp = month.timestamp.substr(0,4) + "-" + month.timestamp.substr(4,2) + "-" + month.timestamp.substr(6,2);
+								article.months.push({"month" : new Date(timestamp).getMonth(), "views" : month.views});
 							});
 						});
 					});

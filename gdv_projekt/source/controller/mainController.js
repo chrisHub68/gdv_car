@@ -3,7 +3,6 @@
 
 	function MainController($rootScope,$scope) {
 		
-		$scope.hallo = "hello";
 	}
 	
 	var app = angular.module("gdvProjekt");

@@ -20,7 +20,7 @@
 	});
 
 	app.run(function($rootScope, $location, $route) {
-		
+
 	});
 
 })(window.angular);
