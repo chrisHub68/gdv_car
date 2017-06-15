@@ -6,7 +6,7 @@
                 {"languageVersion":"de", "searchquery":"Acura"},
                 {"languageVersion":"en", "searchquery":"Acura"},
                 {"languageVersion":"fr", "searchquery":"Acura"},
-                {"languageVersion":"ir", "searchquery":"Acura"},
+                {"languageVersion":"it", "searchquery":"Acura"},
                 {"languageVersion":"ja", "searchquery":"アキュラ"}
             ]
         },
@@ -86,7 +86,7 @@
                 {"languageVersion":"en", "searchquery":"Subaru"},
                 {"languageVersion":"fr", "searchquery":"Subaru"},
                 {"languageVersion":"it", "searchquery":"Subaru_(azienda)"},
-                {"languageVersion":"ja", "searchquery":"SUBARU_(自動車)"} 
+                {"languageVersion":"ja", "searchquery":"自動車"} 
             ]
         },
 
