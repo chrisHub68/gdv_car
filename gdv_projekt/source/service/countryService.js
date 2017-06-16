@@ -49,7 +49,6 @@ function CountryService($rootScope, $http, JSONService, restService) {
 			angular.forEach(country["cars"], function(articles, brandName){
 				if(articles[brand]){
 					value = articles[brand];
-					console.log(articles[brand]);
 				}
 			});
 		});
