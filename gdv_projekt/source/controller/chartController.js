@@ -142,7 +142,17 @@
 			        height: "100%",
 			        width: "100%",
 			        colors:["#22AA99", "#62AA99"],
-			        vAxis : {minValue : 0}
+			        legend: {
+			        	textStyle:{color: '#FFF'}
+			        }, 
+			        hAxis: {
+			            textStyle:{color: '#FFF'}
+			        },
+			        vAxis : {
+			        	minValue : 0,
+			        	textStyle:{color: '#FFF'}
+			        }
+					
 			}
 			
 			google.charts.load('current', {packages: ['corechart', 'line']});
