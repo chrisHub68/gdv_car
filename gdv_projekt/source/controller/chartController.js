@@ -13,15 +13,7 @@
 				initPiechart(countryService.getCountry(languageVersion), index++);
 			});
 		}
-		
-		$scope.$watch("selectedBrands", function(){
-			if($scope.selectedBrands.length > 0 && $scope.selectedBrands.length <= 2){
-				drawBarchart();
-				drawLinechart();
-			}
-		}, true);
-		
-		
+
 		// PIE CHART
 
 		function initPiechart(country, index) {
@@ -62,6 +54,9 @@
 								: $scope.selectedBrands.push(brand);
 			        });
 			        chart.setSelection();
+			        
+			        drawBarchart();
+			        drawLinechart();
 				}
 
 				var chart = new google.visualization.PieChart(document.getElementById("piechart" + index));
@@ -73,6 +68,7 @@
 		// BAR CHART
 		
 		$scope.initBarchart = function() {
+			
 			barchartOptions = {
 					chart: { title: "Aufrufzahlen" },
 					backgroundColor : "#000000" ,
@@ -99,6 +95,7 @@
 		}	
 		
 		function drawBarchart() {
+			
 			var brands = [];
 			
 			if($scope.selectedBrands.length == 0)
@@ -112,8 +109,10 @@
 
 			
 			angular.forEach($scope.selectedBrands, function(brand, index){
+				var articles = countryService.getBrand(brand);
 				index++;
-				angular.forEach(countryService.getBrand(brand), function(article, key){
+				
+				angular.forEach(articles, function(article, key){
 					
 					var views = 0;
 					
@@ -167,9 +166,10 @@
 			
 
 			angular.forEach($scope.selectedBrands, function(brand, index){
+				var articles = countryService.getBrand(brand);
 				index++;
-				angular.forEach(countryService.getBrand(brand), function(article, key){
-					console.log(article)
+				
+				angular.forEach(articles, function(article, key){
 					for (var i = 0; i < article.months.length; i++) {
 						brands[i + 1][index] += article.months[i].views;
 					}
