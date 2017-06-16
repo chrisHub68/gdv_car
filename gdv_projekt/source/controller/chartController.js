@@ -78,10 +78,18 @@
 			        height: "100%",
 			        width: "100%",
 			        colors:["#22AA99", "#62AA99"],
+			        legend: {
+			        	textStyle:{color: '#FFF'}
+			        }, 
 			        hAxis: {
 			            minValue: 0,
-			            maxValue: 2500000
+			            maxValue: 2500000,
+			            textStyle:{color: '#FFF'}
+			        },
+			        vAxis: {
+			        	textStyle:{color: '#FFF'}
 			        }
+			        
 			};
 			
 			google.charts.load('current', {packages: ['corechart', 'bar']});
