@@ -29,9 +29,11 @@
 						var views = 0;
 						
 						angular.forEach(articles, function(article, k){
-							angular.forEach(article.months, function(month, k){
-								views += month.views;
-							});
+							if(article.languageVersion != "en") {
+								angular.forEach(article.months, function(month, k){
+									views += month.views;
+								});
+							}
 						});
 						
 						cars.push([brand, views])
@@ -80,8 +82,9 @@
 			        width: "100%",
 			        colors:["#22AA99", "#62AA99"],
 			        legend: "none", 
+			        bar: { groupWidth: "40%" },
 			        hAxis: {
-			        	textStyle : "none"
+			        	textPosition: 'none' 
 			        },
 			        vAxis: {
 			        	minValue: 0,
