@@ -17,8 +17,7 @@
 		
 		function initPieChart(index, languageVersion) {
 			var country = countryService.getCountry(languageVersion);
-			console.log(country + " " + index + " " + languageVersion);
-			
+
 			google.charts.load("current", {"packages" : [ "corechart" ]});
 			google.charts.setOnLoadCallback(drawChart);
 
@@ -49,7 +48,8 @@
 					chartArea : {'width': '80%', 'height': '100%'},
 					backgroundColor : {fill:"#000000"},
 					legend : "none",
-					 colors:["#22AA99"],
+					colors:["#22AA99"],
+					pieSliceText: 'label',
 					pieHole: "0.4", 
 					tooltip: {ignoreBounds : true}
 				};
