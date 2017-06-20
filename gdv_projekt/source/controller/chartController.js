@@ -81,7 +81,7 @@
 			        width: "100%",
 			        colors:["#22AA99", "#62AA99"],
 			        legend: "none", 
-			        bar: { groupWidth: "20%" },
+			        bar: { groupWidth: "40%" },
 			        hAxis: {
 			        	textPosition: 'none' 
 			        },
