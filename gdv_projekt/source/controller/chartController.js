@@ -29,9 +29,11 @@
 						var views = 0;
 						
 						angular.forEach(articles, function(article, k){
-							angular.forEach(article.months, function(month, k){
-								views += month.views;
-							});
+							if(article.languageVersion != "en") {
+								angular.forEach(article.months, function(month, k){
+									views += month.views;
+								});
+							}
 						});
 						
 						cars.push([brand, views])
