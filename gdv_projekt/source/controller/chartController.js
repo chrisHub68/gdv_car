@@ -193,10 +193,7 @@
 			}
 			
 			columnchart.draw(google.visualization.arrayToDataTable(brands), columnchartOptions);
-			console.log(countryService.getBrandLanguageValues("Audi"));
-//			console.log(countryService.getBrandValue("Audi","de"));
-//			console.log(countryService.getBrandValue("Audi","de").de);
-			
+
 //			if($scope.selectedBrands.length == 1) 
 //				brands.push(["Land", $scope.selectedBrands[0]], ["Deutsch", 0], ["Italienisch", 0], ["Japanisch", 0], ["Franzoesisch", 0]);
 //			
