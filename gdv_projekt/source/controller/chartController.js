@@ -81,8 +81,9 @@
 			        width: "100%",
 			        colors:["#22AA99", "#62AA99"],
 			        legend: "none", 
+			        bar: { groupWidth: "20%" },
 			        hAxis: {
-			        	textStyle : "none"
+			        	textPosition: 'none' 
 			        },
 			        vAxis: {
 			        	minValue: 0,
