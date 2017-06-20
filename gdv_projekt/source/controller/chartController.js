@@ -1,9 +1,9 @@
 (function(angular) {
 	'use strict';
+	
+	var languageColors = {1 :"#e6c603", 2:"#31961c",3:"#ad1818",4:"#3334dc"};
 
 	function ChartController($rootScope, $scope, countryService, restService) {
-		
-		var columnchart, columnchartData, columnchartOptions, linechart, linechartData, linechartOptions;
 		
 		$scope.selectedBrands = [];
 		
@@ -74,13 +74,16 @@
 		
 		$scope.initColumnChart = function(number, language) {
 			
-			columnchartOptions = {
+			var colors = [];
+			colors.push(languageColors[number]);
+			
+			var columnchartOptions = {
 					chart: { title: "Aufrufzahlen" },
 					backgroundColor : "#000000" ,
 					animation: { duration: 1000, easing: "out" },
 			        height: "100%",
-			        width: "100%",
-			        colors:["#22AA99", "#62AA99"],
+			        width: "100%",	
+			        colors: colors,
 			        legend: "none", 
 			        bar: { groupWidth: "40%" },
 			        hAxis: {
@@ -89,17 +92,20 @@
 			        vAxis: {
 			        	minValue: 0,
 			            maxValue: 1000000,
-			            gridlines: { count: 3 },
+			            gridlines: { count: 3, color: "#403f3f" },
+			            baselineColor: "#403f3f",
 			        	textStyle:{color: '#FFF'}
 			        }
 			        
 			};
 			
+			var columnchart;
+			
 			google.charts.load('current', {packages: ['corechart', 'bar']});
-			google.charts.setOnLoadCallback(function(){columnchart = new google.visualization.ColumnChart(document.getElementById("columnchart_" + language + "_" + number)); drawColumnChart("columnchart_" + language + "_" + number)});
+			google.charts.setOnLoadCallback(function(){columnchart = new google.visualization.ColumnChart(document.getElementById("columnchart_" + language + "_" + number)); drawColumnChart(columnchart, "columnchart_" + language + "_" + number, columnchartOptions)});
 		}	
 		
-		function drawColumnChart(chartID) {
+		function drawColumnChart(columnchart, chartID, columnchartOptions) {
 			
 			var brands = [];
 
@@ -194,98 +200,13 @@
 												  ["Renault", countryService.getBrandLanguageValues("Renault").fr], ["Bugatti", countryService.getBrandLanguageValues("Bugatti").fr], 
 												  ["Citroën", countryService.getBrandLanguageValues("Citroën").fr]); break;
 			
+			 
+												  
 			}
 			
 			columnchart.draw(google.visualization.arrayToDataTable(brands), columnchartOptions);
-
-//			if($scope.selectedBrands.length == 1) 
-//				brands.push(["Land", $scope.selectedBrands[0]], ["Deutsch", 0], ["Italienisch", 0], ["Japanisch", 0], ["Franzoesisch", 0]);
-//			
-//			if($scope.selectedBrands.length == 2)
-//				brands.push(["Land", $scope.selectedBrands[0] , $scope.selectedBrands[1]], ["Deutsch", 0 , 0], ["Italienisch", 0, 0], ["Japanisch", 0, 0], ["Franzoesisch", 0]);
-//
-//			
-//			angular.forEach($scope.selectedBrands, function(brand, index){
-//				var articles = countryService.getBrand(brand);
-//				index++;
-//				
-//				angular.forEach(articles, function(article, key){
-//					
-//					var views = 0;
-//					
-//					angular.forEach(article.months, function(month,k){
-//						views += month.views;
-//					}); 
-//					
-//					for (var i = 1; i < brands.length; i++) {
-//						if(article.languageVersion == "de") brands[1][index] = views;
-//						if(article.languageVersion == "it") brands[2][index] = views;
-//						if(article.languageVersion == "ja") brands[3][index] = views;
-//						if(article.languageVersion == "fr") brands[4][index] = views;
-//					}
-//				});
-//			});
-						
-		}
-		
-		// LINE CHART
-		
-		$scope.initLinechart = function(){
-			linechartOptions = {
-					backgroundColor : "#000000" ,
-					animation: { duration: 1000, easing: "out" },
-			        height: "100%",
-			        width: "100%",
-			        colors:["#22AA99", "#62AA99"],
-			        legend: {
-			        	textStyle:{color: '#FFF'}
-			        }, 
-			        hAxis: {
-			            textStyle:{color: '#FFF'}
-			        },
-			        vAxis : {
-			        	minValue : 0,
-			        	textStyle:{color: '#FFF'}
-			        }
-					
-			}
-			
-			google.charts.load('current', {packages: ['corechart', 'line']});
-			google.charts.setOnLoadCallback(function(){ linechart = new google.visualization.LineChart(document.getElementById("linechart1")); drawLinechart()});
-		}
-		
-		function drawLinechart() {
-			var brands = [];
-			
-			if($scope.selectedBrands.length == 0)
-				brands.push(["Monat", ""], ["Januar", 0], ["Februar", 0], ["März", 0], ["April", 0], ["Mai", 0], ["Juni", 0], ["Juli", 0], ["August", 0], 
-						["September", 0], ["Oktober", 0], ["November", 0], ["Dezember", 0]);
-			
-			if($scope.selectedBrands.length == 1) 
-				brands.push(["Monat", $scope.selectedBrands[0]], ["Januar", 0], ["Februar", 0], ["März", 0], ["April", 0], ["Mai", 0], ["Juni", 0], 
-						["Juli", 0], ["August", 0], ["September", 0], ["Oktober", 0], ["November", 0], ["Dezember", 0]);
-			
-			if($scope.selectedBrands.length == 2)
-				brands.push(["Land", $scope.selectedBrands[0] , $scope.selectedBrands[1]], ["Januar", 0], ["Februar", 0], ["März", 0], ["April", 0], 
-						["Mai", 0], ["Juni", 0], ["Juli", 0], ["August", 0], ["September", 0], ["Oktober", 0], ["November", 0], ["Dezember", 0]);
-			
-
-			angular.forEach($scope.selectedBrands, function(brand, index){
-				var articles = countryService.getBrand(brand);
-				index++;
-				
-				angular.forEach(articles, function(article, key){
-					for (var i = 0; i < article.months.length; i++) {
-						brands[i + 1][index] += article.months[i].views;
-					}
-				});
-			});
-			
-			
-			linechart.draw(google.visualization.arrayToDataTable(brands), linechartOptions);
 		}
 	}
-
 	var app = angular.module("gdvProjekt");
 	app.controller("ChartController", [ '$rootScope', '$scope', 'countryService', 'restService',
 			ChartController ]);
