@@ -43,10 +43,11 @@
 
 				var options = {
 					chartArea : {'width': '80%', 'height': '100%'},
-					backgroundColor : "#000000",
+					backgroundColor : {fill:"#000000"},
 					legend : "none",
 					 colors:["#22AA99"],
 					pieHole: "0.4", 
+					tooltip: {ignoreBounds : true}
 				};
 				
 				function selectHandler() {

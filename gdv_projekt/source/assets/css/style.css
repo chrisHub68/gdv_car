@@ -6,3 +6,23 @@
 	filter: grayscale(0%)
 }
 
+#piechart1 path{
+	fill: #e6c603;
+}
+
+#piechart2 path{
+	fill: #31961c
+}
+
+#piechart3 path{
+	fill: #ad1818
+}
+
+#piechart4 path{
+	fill: #3334dc
+}
+
+path{
+	stroke: #000000;
+	stroke-width: 2px;
+}
