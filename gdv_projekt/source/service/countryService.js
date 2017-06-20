@@ -1,5 +1,5 @@
 function CountryService($rootScope, $http, JSONService, restService) {
-	var _selectedCountries = [];
+	var _selectedCountries = ["de","it","ja","fr"];
 	var _countries = {"de" : {} , "it" : {}, "ja" : {}, "fr" : {}};
 	
 	angular.forEach(_countries, function(country, languageVersion){
@@ -11,7 +11,7 @@ function CountryService($rootScope, $http, JSONService, restService) {
 					angular.forEach(articles, function(article, articleName){
 						article.months = [];
 						
-						if(article.languageVersion && article.searchquery)
+						//if(article.languageVersion && article.searchquery)
 						restService.getClicks(article.languageVersion, article.searchquery).then(function(data){
 							angular.forEach(data.items, function(month,k){
 								var timestamp = month.timestamp.substr(0,4) + "-" + month.timestamp.substr(4,2) + "-" + month.timestamp.substr(6,2);
@@ -32,11 +32,11 @@ function CountryService($rootScope, $http, JSONService, restService) {
 		return _selectedCountries;
 	};
 	
-	this.setSelectedCountry = function setSelectedCountry(country){
-		$.inArray(country, _selectedCountries) > -1 ?_selectedCountries.splice(_selectedCountries.indexOf(country),1) 
-				: _selectedCountries.length < 2 ? _selectedCountries.push(country) : (_selectedCountries.splice(0,1), _selectedCountries.push(country));		
-		$rootScope.$broadcast("selectedCountries:updated");
-	}
+//	this.setSelectedCountry = function setSelectedCountry(country){
+//		$.inArray(country, _selectedCountries) > -1 ?_selectedCountries.splice(_selectedCountries.indexOf(country),1) 
+//				: _selectedCountries.length < 2 ? _selectedCountries.push(country) : (_selectedCountries.splice(0,1), _selectedCountries.push(country));		
+//		$rootScope.$broadcast("selectedCountries:updated");
+//	}
 	
 	this.getCountry = function(languageVersion){
 		return _countries[languageVersion];
@@ -54,6 +54,39 @@ function CountryService($rootScope, $http, JSONService, restService) {
 		});
 		
 		return value;
+	}
+	
+	this.getBrandLanguageValues = function(car) {
+		var brandValues = {"de" : {} , "it" : {}, "ja" : {}, "fr" : {}};;
+		var result = 0;
+		var brandObj = this.getBrand(car);
+			
+		angular.forEach(brandObj, function(index, name){
+			angular.forEach(index, function(car, name){
+				angular.forEach(index.months, function(month, name){
+				
+					result += month.views;
+					
+				});
+				
+				switch(index.languageVersion) {
+					case "de"	: 	brandValues["de"] = result; break;
+					case "it"	:	brandValues["it"] = result; break;
+					case "ja"	:	brandValues["ja"] = result; break;
+					case "fr"	:	brandValues["fr"] = result; break;
+				}
+		
+				result = 0;
+			});
+		});
+
+		return brandValues;
+	}
+	
+	this.getBrandValue = function(brand, language) {
+		var value =  this.getBrandLanguageValues(brand);
+
+		return value.language;
 	}
 }
 

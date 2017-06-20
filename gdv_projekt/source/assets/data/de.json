@@ -22,16 +22,6 @@
         },
 
         {
-            "Bugatti" : [
-                {"languageVersion":"de", "searchquery":"Bugatti"},
-                {"languageVersion":"en", "searchquery":"Bugatti"},
-                {"languageVersion":"fr", "searchquery":"Bugatti"},
-                {"languageVersion":"it", "searchquery":"Bugatti"},
-                {"languageVersion":"ja", "searchquery":"ブガッティ"}
-            ]
-        },
-
-        {
             "Mercedes-Benz" : [
                 {"languageVersion":"de", "searchquery":"Mercedes-Benz"},
                 {"languageVersion":"en", "searchquery":"Mercedes-Benz"},

@@ -1,7 +1,7 @@
 {
     "name" : "Frankreich",
     "cars" :   [
-        {
+     {
             "Citroën" : [
                 {"languageVersion":"de", "searchquery":"Citroën"},
                 {"languageVersion":"en", "searchquery":"Citroën"},
@@ -22,7 +22,7 @@
         },
 
         {
-            "Peuggeot" : [
+            "Peugeot" : [
                 {"languageVersion":"de", "searchquery":"Peugeot"},
                 {"languageVersion":"en", "searchquery":"Peugeot"},
                 {"languageVersion":"fr", "searchquery":"Peugeot"},
@@ -38,6 +38,16 @@
                 {"languageVersion":"fr", "searchquery":"Renault"},
                 {"languageVersion":"it", "searchquery":"Renault"},
                 {"languageVersion":"ja", "searchquery":"ルノー"}
+            ]
+        },
+        
+          {
+            "Bugatti" : [
+                {"languageVersion":"de", "searchquery":"Bugatti"},
+                {"languageVersion":"en", "searchquery":"Bugatti"},
+                {"languageVersion":"fr", "searchquery":"Bugatti"},
+                {"languageVersion":"it", "searchquery":"Bugatti"},
+                {"languageVersion":"ja", "searchquery":"ブガッティ"}
             ]
         }
     ]

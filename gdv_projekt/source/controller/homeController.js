@@ -35,7 +35,7 @@
 		
 		$scope.selectedCountries = [];
 		$scope.selectedBrands = ["hallo"];
-		$scope.countriesLoaded = false;
+		$scope.countriesLoaded = true;
 		
 		function getSelectedCountries(){
 			$scope.selectedCountries = countryService.getSelectedCountries();
@@ -51,6 +51,12 @@
 		
 		$scope.loadCountries = function(){
 			$scope.countriesLoaded = true;
+		}
+		
+		$scope.selectBrand = function(event, x) {
+			console.log(event.currentTarget, x);
+//			console.log(countryService.getBrandLanguageValues('Audi'));
+//			console.log("ICH BIN ABER DURCHGELAUFEN");
 		}
 		
 		$scope.$watch("selectedCountries", function(){

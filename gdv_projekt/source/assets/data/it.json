@@ -1,14 +1,14 @@
 {	
 	"name" : "Italien",
 	"cars" : [
-        {
+       {
             "Alfa Romeo" : [ 
                 {"languageVersion":"de", "searchquery":"Alfa_Romeo"},
                 {"languageVersion":"en", "searchquery":"Alfa_Romeo"},
                 {"languageVersion":"fr", "searchquery":"Alfa_Romeo"},
                 {"languageVersion":"ja", "searchquery":"アルファロメオ"},
-		{"languageVersion":"it", "searchquery":"Alfa_Romeo"}
-            ]
+				{"languageVersion":"it", "searchquery":"Alfa_Romeo"}
+       	     ]
         },
 	{
             "Ferrari": [
@@ -16,7 +16,7 @@
                 {"languageVersion":"en", "searchquery":"Ferrari"},
                 {"languageVersion":"fr", "searchquery":"Ferrari_(entreprise)"},
                 {"languageVersion":"ja", "searchquery":"フェラーリ"},
-		{"languageVersion":"it", "searchquery":"Ferrari"}
+				{"languageVersion":"it", "searchquery":"Ferrari"}
             ]
         },
 
@@ -26,7 +26,7 @@
                 {"languageVersion":"en", "searchquery":"Fiat_Automobiles"},
                 {"languageVersion":"fr", "searchquery":"Fiat"},
                 {"languageVersion":"ja", "searchquery":"フィアット"},
-		{"languageVersion":"it", "searchquery":"FIAT"}
+				{"languageVersion":"it", "searchquery":"FIAT"}
             ]
         },
 
@@ -36,8 +36,8 @@
                 {"languageVersion":"en", "searchquery":"Lamborghini"},
                 {"languageVersion":"fr", "searchquery":"Lamborghini"},
                 {"languageVersion":"ja", "searchquery":"ランボルギーニ"},
-		{"languageVersion":"it", "searchquery":"Lamborghini"}
-            ]
+				{"languageVersion":"it", "searchquery":"Lamborghini"}
+       	     ]
         },
 
         {
@@ -46,7 +46,7 @@
                 {"languageVersion":"en", "searchquery":"Lancia"},
                 {"languageVersion":"fr", "searchquery":"Lancia"},
                 {"languageVersion":"ja", "searchquery":"ランチア"}, 
-		{"languageVersion":"it", "searchquery":"Lancia_(azienda)"}
+				{"languageVersion":"it", "searchquery":"Lancia_(azienda)"}
             ]
         },
 
@@ -56,19 +56,18 @@
                 {"languageVersion":"en", "searchquery":"Maserati"},
                 {"languageVersion":"fr", "searchquery":"Maserati"},
                 {"languageVersion":"ja", "searchquery":"マセラティ"},
-		{"languageVersion":"it", "searchquery":"Maserati"}
+				{"languageVersion":"it", "searchquery":"Maserati"}
             ]
         },
 
         {
-            "Pangani" : [
+            "Pagani" : [
                 {"languageVersion":"de", "searchquery":"Pagani_Automobili"},
                 {"languageVersion":"en", "searchquery":"Pagani_(company)"},
                 {"languageVersion":"fr", "searchquery":"Pagani_(entreprise)"},
                 {"languageVersion":"ja", "searchquery":"パガーニ・アウトモビリ"},
-		{"languageVersion":"it", "searchquery":"Pagani_Automobili"}
+				{"languageVersion":"it", "searchquery":"Pagani_Automobili"}
             ]
         }
-
 	]
 }

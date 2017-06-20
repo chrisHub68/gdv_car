@@ -3,16 +3,16 @@
 
 	function ChartController($rootScope, $scope, countryService, restService) {
 		
-		var barchart, barchartData, barchartOptions, linechart, linechartData, linechartOptions;
+		var columnchart, columnchartData, columnchartOptions, linechart, linechartData, linechartOptions;
 		
 		$scope.selectedBrands = [];
 		
-		$scope.loadCountries = function(){
-			var index = 1;
-			angular.forEach(countryService.getSelectedCountries(), function(languageVersion,k){
-				initPiechart(countryService.getCountry(languageVersion), index++);
-			});
-		}
+		
+		var index = 1;
+		angular.forEach(countryService.getSelectedCountries(), function(languageVersion,k){
+			initPiechart(countryService.getCountry(languageVersion), index++);
+		});
+		
 
 		// PIE CHART
 
@@ -38,13 +38,15 @@
 					})
 				});
 				
+				
 				var data = google.visualization.arrayToDataTable(cars);
 
 				var options = {
 					chartArea : {'width': '80%', 'height': '100%'},
 					backgroundColor : "#000000",
 					legend : "none",
-					colors:["#22AA99"]
+					 colors:["#22AA99"],
+					pieHole: "0.4", 
 				};
 				
 				function selectHandler() {
@@ -55,7 +57,7 @@
 			        });
 			        chart.setSelection();
 			        
-			        drawBarchart();
+			        drawColumnChart();
 			        drawLinechart();
 				}
 
@@ -65,72 +67,164 @@
 			}
 		}
 		
-		// BAR CHART
+		// Column CHART
 		
-		$scope.initBarchart = function() {
+		$scope.initColumnChart = function(number, language) {
 			
-			barchartOptions = {
+			columnchartOptions = {
 					chart: { title: "Aufrufzahlen" },
 					backgroundColor : "#000000" ,
 					animation: { duration: 1000, easing: "out" },
 			        height: "100%",
 			        width: "100%",
 			        colors:["#22AA99", "#62AA99"],
-			        legend: {
-			        	textStyle:{color: '#FFF'}
-			        }, 
+			        legend: "none", 
 			        hAxis: {
-			            minValue: 0,
-			            maxValue: 2500000,
-			            textStyle:{color: '#FFF'}
+			        	textStyle : "none"
 			        },
 			        vAxis: {
+			        	minValue: 0,
+			            maxValue: 1000000,
+			            gridlines: { count: 3 },
 			        	textStyle:{color: '#FFF'}
 			        }
 			        
 			};
 			
 			google.charts.load('current', {packages: ['corechart', 'bar']});
-			google.charts.setOnLoadCallback(function(){barchart = new google.visualization.BarChart(document.getElementById("barchart1")); drawBarchart()});
+			google.charts.setOnLoadCallback(function(){columnchart = new google.visualization.ColumnChart(document.getElementById("columnchart_" + language + "_" + number)); drawColumnChart("columnchart_" + language + "_" + number)});
 		}	
 		
-		function drawBarchart() {
+		function drawColumnChart(chartID) {
 			
 			var brands = [];
-			
-			if($scope.selectedBrands.length == 0)
-				brands.push(["Land", ""], ["Deutsch", 0], ["Italienisch", 0], ["Japanisch", 0], ["Franzoesisch", 0], ["Englisch", 0]);
-			
-			if($scope.selectedBrands.length == 1) 
-				brands.push(["Land", $scope.selectedBrands[0]], ["Deutsch", 0], ["Italienisch", 0], ["Japanisch", 0], ["Franzoesisch", 0], ["Englisch", 0]);
-			
-			if($scope.selectedBrands.length == 2)
-				brands.push(["Land", $scope.selectedBrands[0] , $scope.selectedBrands[1]], ["Deutsch", 0 , 0], ["Italienisch", 0, 0], ["Japanisch", 0, 0], ["Franzoesisch", 0], ["Englisch", 0]);
 
+			switch(chartID) {
 			
-			angular.forEach($scope.selectedBrands, function(brand, index){
-				var articles = countryService.getBrand(brand);
-				index++;
-				
-				angular.forEach(articles, function(article, key){
-					
-					var views = 0;
-					
-					angular.forEach(article.months, function(month,k){
-						views += month.views;
-					}); 
-					
-					for (var i = 1; i < brands.length; i++) {
-						if(article.languageVersion == "de") brands[1][index] = views;
-						if(article.languageVersion == "it") brands[2][index] = views;
-						if(article.languageVersion == "ja") brands[3][index] = views;
-						if(article.languageVersion == "fr") brands[4][index] = views;
-						if(article.languageVersion == "en") brands[5][index] = views;
-					}
-				});
-			});
+			case "columnchart_de_1" : brands.push(["Land", "Marken"], ["Audi", countryService.getBrandLanguageValues("Audi").de], ["Opel", countryService.getBrandLanguageValues("Opel").de], 
+												  ["Mercedes-Benz", countryService.getBrandLanguageValues("Mercedes-Benz").de], ["VW", countryService.getBrandLanguageValues("VW").de], 
+												  ["Smart", countryService.getBrandLanguageValues("Smart").de], ["Porsche", countryService.getBrandLanguageValues("Porsche").de], 
+												  ["BMW", countryService.getBrandLanguageValues("BMW").de]); break;
+												  
+			case "columnchart_de_2" : brands.push(["Land", "Marken"], ["Lamborghini", countryService.getBrandLanguageValues("Lamborghini").de], ["Ferrari", countryService.getBrandLanguageValues("Ferrari").de], 
+												  ["Fiat", countryService.getBrandLanguageValues("Fiat").de], ["Lancia", countryService.getBrandLanguageValues("Lancia").de], 
+												  ["Maserati", countryService.getBrandLanguageValues("Maserati").de], ["Alfa Romeo", countryService.getBrandLanguageValues("Alfa Romeo").de], 
+												  ["Pagani", countryService.getBrandLanguageValues("Pagani").de]); break;
 			
-			barchart.draw(google.visualization.arrayToDataTable(brands), barchartOptions);			
+			
+			case "columnchart_de_3" : brands.push(["Land", "Marken"], ["Honda", countryService.getBrandLanguageValues("Honda").de], ["Mitsubishi", countryService.getBrandLanguageValues("Mitsubishi").de], 
+												  ["Nissan", countryService.getBrandLanguageValues("Nissan").de], ["Suzuki", countryService.getBrandLanguageValues("Suzuki").de], 
+												  ["Toyota", countryService.getBrandLanguageValues("Toyota").de], ["Acura", countryService.getBrandLanguageValues("Acura").de], 
+												  ["Daihatsu", countryService.getBrandLanguageValues("Daihatsu").de], ["Isuzu",countryService.getBrandLanguageValues("Isuzu").de], 
+												  ["Isuzu", countryService.getBrandLanguageValues("Isuzu").de], ["Mazda", countryService.getBrandLanguageValues("Mazda").de], 
+												  ["Acura", countryService.getBrandLanguageValues("Acura").de]); break;
+			
+			
+			case "columnchart_de_4" : brands.push(["Land", "Marken"], ["Ligier", countryService.getBrandLanguageValues("Ligier").de], ["Peugeot", countryService.getBrandLanguageValues("Peugeot").de], 
+												  ["Renault", countryService.getBrandLanguageValues("Renault").de], ["Bugatti", countryService.getBrandLanguageValues("Bugatti").de], 
+												  ["Citroën", countryService.getBrandLanguageValues("Citroën").de]); break;
+			
+			
+			case "columnchart_it_1" : brands.push(["Land", "Marken"], ["Audi", countryService.getBrandLanguageValues("Audi").it], ["Opel", countryService.getBrandLanguageValues("Opel").it], 
+												  ["Mercedes-Benz", countryService.getBrandLanguageValues("Mercedes-Benz").it], ["VW", countryService.getBrandLanguageValues("VW").it], 
+												  ["Smart", countryService.getBrandLanguageValues("Smart").it], ["Porsche", countryService.getBrandLanguageValues("Porsche").it], 
+												  ["BMW", countryService.getBrandLanguageValues("BMW").it]); break;
+												  
+			case "columnchart_it_2" : brands.push(["Land", "Marken"], ["Lamborghini", countryService.getBrandLanguageValues("Lamborghini").it], ["Ferrari", countryService.getBrandLanguageValues("Ferrari").it], 
+												  ["Fiat", countryService.getBrandLanguageValues("Fiat").it], ["Lancia", countryService.getBrandLanguageValues("Lancia").it], 
+												  ["Maserati", countryService.getBrandLanguageValues("Maserati").it], ["Alfa Romeo", countryService.getBrandLanguageValues("Alfa Romeo").it], 
+												  ["Pagani", countryService.getBrandLanguageValues("Pagani").it]); break;
+			
+			case "columnchart_it_3" : brands.push(["Land", "Marken"], ["Honda", countryService.getBrandLanguageValues("Honda").it], ["Mitsubishi", countryService.getBrandLanguageValues("Mitsubishi").it], 
+												  ["Nissan", countryService.getBrandLanguageValues("Nissan").it], ["Suzuki", countryService.getBrandLanguageValues("Suzuki").it], 
+												  ["Toyota", countryService.getBrandLanguageValues("Toyota").it], ["Acura", countryService.getBrandLanguageValues("Acura").it], 
+												  ["Daihatsu", countryService.getBrandLanguageValues("Daihatsu").it], ["Isuzu",countryService.getBrandLanguageValues("Isuzu").it], 
+												  ["Isuzu", countryService.getBrandLanguageValues("Isuzu").it], ["Mazda", countryService.getBrandLanguageValues("Mazda").it], 
+												  ["Acura", countryService.getBrandLanguageValues("Acura").it]); break;
+						
+			case "columnchart_it_4" : brands.push(["Land", "Marken"], ["Ligier", countryService.getBrandLanguageValues("Ligier").it], ["Peugeot", countryService.getBrandLanguageValues("Peugeot").it], 
+												  ["Renault", countryService.getBrandLanguageValues("Renault").it], ["Bugatti", countryService.getBrandLanguageValues("Bugatti").it], 
+												  ["Citroën", countryService.getBrandLanguageValues("Citroën").it]); break;
+			
+			
+			case "columnchart_ja_1" : brands.push(["Land", "Marken"], ["Audi", countryService.getBrandLanguageValues("Audi").ja], ["Opel", countryService.getBrandLanguageValues("Opel").ja], 
+												  ["Mercedes-Benz", countryService.getBrandLanguageValues("Mercedes-Benz").ja], ["VW", countryService.getBrandLanguageValues("VW").ja], 
+												  ["Smart", countryService.getBrandLanguageValues("Smart").ja], ["Porsche", countryService.getBrandLanguageValues("Porsche").ja], 
+												  ["BMW", countryService.getBrandLanguageValues("BMW").ja]); break;
+												  
+			case "columnchart_ja_2" : brands.push(["Land", "Marken"], ["Lamborghini", countryService.getBrandLanguageValues("Lamborghini").ja], ["Ferrari", countryService.getBrandLanguageValues("Ferrari").ja], 
+												  ["Fiat", countryService.getBrandLanguageValues("Fiat").ja], ["Lancia", countryService.getBrandLanguageValues("Lancia").ja], 
+												  ["Maserati", countryService.getBrandLanguageValues("Maserati").ja], ["Alfa Romeo", countryService.getBrandLanguageValues("Alfa Romeo").ja], 
+												  ["Pagani", countryService.getBrandLanguageValues("Pagani").ja]); break;
+			
+			case "columnchart_ja_3" : brands.push(["Land", "Marken"], ["Honda", countryService.getBrandLanguageValues("Honda").ja], ["Mitsubishi", countryService.getBrandLanguageValues("Mitsubishi").ja], 
+												  ["Nissan", countryService.getBrandLanguageValues("Nissan").ja], ["Suzuki", countryService.getBrandLanguageValues("Suzuki").ja], 
+												  ["Toyota", countryService.getBrandLanguageValues("Toyota").ja], ["Acura", countryService.getBrandLanguageValues("Acura").ja], 
+												  ["Daihatsu", countryService.getBrandLanguageValues("Daihatsu").ja], ["Isuzu",countryService.getBrandLanguageValues("Isuzu").ja], 
+												  ["Isuzu", countryService.getBrandLanguageValues("Isuzu").ja], ["Mazda", countryService.getBrandLanguageValues("Mazda").ja], 
+												  ["Acura", countryService.getBrandLanguageValues("Acura").ja]); break;
+							
+			case "columnchart_ja_4" : brands.push(["Land", "Marken"], ["Ligier", countryService.getBrandLanguageValues("Ligier").ja], ["Peugeot", countryService.getBrandLanguageValues("Peugeot").ja], 
+												  ["Renault", countryService.getBrandLanguageValues("Renault").ja], ["Bugatti", countryService.getBrandLanguageValues("Bugatti").ja], 
+												  ["Citroën", countryService.getBrandLanguageValues("Citroën").ja]); break;
+			
+			
+			case "columnchart_fr_1" : brands.push(["Land", "Marken"], ["Audi", countryService.getBrandLanguageValues("Audi").fr], ["Opel", countryService.getBrandLanguageValues("Opel").fr], 
+												  ["Mercedes-Benz", countryService.getBrandLanguageValues("Mercedes-Benz").fr], ["VW", countryService.getBrandLanguageValues("VW").fr], 
+												  ["Smart", countryService.getBrandLanguageValues("Smart").fr], ["Porsche", countryService.getBrandLanguageValues("Porsche").fr], 
+												  ["BMW", countryService.getBrandLanguageValues("BMW").fr]); break;
+												  
+			case "columnchart_fr_2" : brands.push(["Land", "Marken"], ["Lamborghini", countryService.getBrandLanguageValues("Lamborghini").fr], ["Ferrari", countryService.getBrandLanguageValues("Ferrari").fr], 
+												  ["Fiat", countryService.getBrandLanguageValues("Fiat").fr], ["Lancia", countryService.getBrandLanguageValues("Lancia").fr], 
+												  ["Maserati", countryService.getBrandLanguageValues("Maserati").fr], ["Alfa Romeo", countryService.getBrandLanguageValues("Alfa Romeo").fr], 
+												  ["Pagani", countryService.getBrandLanguageValues("Pagani").fr]); break;
+									  
+			case "columnchart_fr_3" : brands.push(["Land", "Marken"], ["Honda", countryService.getBrandLanguageValues("Honda").fr], ["Mitsubishi", countryService.getBrandLanguageValues("Mitsubishi").fr], 
+												  ["Nissan", countryService.getBrandLanguageValues("Nissan").fr], ["Suzuki", countryService.getBrandLanguageValues("Suzuki").fr], 
+												  ["Toyota", countryService.getBrandLanguageValues("Toyota").fr], ["Acura", countryService.getBrandLanguageValues("Acura").fr], 
+												  ["Daihatsu", countryService.getBrandLanguageValues("Daihatsu").fr], ["Isuzu",countryService.getBrandLanguageValues("Isuzu").fr], 
+												  ["Lexus", countryService.getBrandLanguageValues("Lexus").fr], ["Mazda", countryService.getBrandLanguageValues("Mazda").fr], 
+												  ["Acura", countryService.getBrandLanguageValues("Acura").fr]); break;
+			
+			case "columnchart_fr_4" : brands.push(["Land", "Marken"], ["Ligier", countryService.getBrandLanguageValues("Ligier").fr], ["Peugeot", countryService.getBrandLanguageValues("Peugeot").fr], 
+												  ["Renault", countryService.getBrandLanguageValues("Renault").fr], ["Bugatti", countryService.getBrandLanguageValues("Bugatti").fr], 
+												  ["Citroën", countryService.getBrandLanguageValues("Citroën").fr]); break;
+			
+			}
+			
+			columnchart.draw(google.visualization.arrayToDataTable(brands), columnchartOptions);
+			console.log(countryService.getBrandLanguageValues("Audi"));
+//			console.log(countryService.getBrandValue("Audi","de"));
+//			console.log(countryService.getBrandValue("Audi","de").de);
+			
+//			if($scope.selectedBrands.length == 1) 
+//				brands.push(["Land", $scope.selectedBrands[0]], ["Deutsch", 0], ["Italienisch", 0], ["Japanisch", 0], ["Franzoesisch", 0]);
+//			
+//			if($scope.selectedBrands.length == 2)
+//				brands.push(["Land", $scope.selectedBrands[0] , $scope.selectedBrands[1]], ["Deutsch", 0 , 0], ["Italienisch", 0, 0], ["Japanisch", 0, 0], ["Franzoesisch", 0]);
+//
+//			
+//			angular.forEach($scope.selectedBrands, function(brand, index){
+//				var articles = countryService.getBrand(brand);
+//				index++;
+//				
+//				angular.forEach(articles, function(article, key){
+//					
+//					var views = 0;
+//					
+//					angular.forEach(article.months, function(month,k){
+//						views += month.views;
+//					}); 
+//					
+//					for (var i = 1; i < brands.length; i++) {
+//						if(article.languageVersion == "de") brands[1][index] = views;
+//						if(article.languageVersion == "it") brands[2][index] = views;
+//						if(article.languageVersion == "ja") brands[3][index] = views;
+//						if(article.languageVersion == "fr") brands[4][index] = views;
+//					}
+//				});
+//			});
+						
 		}
 		
 		// LINE CHART

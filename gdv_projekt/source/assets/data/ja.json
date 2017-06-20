@@ -1,6 +1,6 @@
 {
     "name" : "Japan",
-    "cars" : [
+    "cars" : [     
         {
             "Acura" : [
                 {"languageVersion":"de", "searchquery":"Acura"},
