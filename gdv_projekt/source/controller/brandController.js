@@ -161,7 +161,13 @@
 			 
 		]
 		
+		$scope.brands = [];
 		
+		for(var i = 0; i < $scope.brands_de.length; i++) $scope.brands.push($scope.brands_de[i]);
+		for(var i = 0; i < $scope.brands_it.length; i++) $scope.brands.push($scope.brands_it[i]);
+		for(var i = 0; i < $scope.brands_ja.length; i++) $scope.brands.push($scope.brands_ja[i]);
+		for(var i = 0; i < $scope.brands_fr.length; i++) $scope.brands.push($scope.brands_fr[i]);
+
 	}
 	
 	var app = angular.module("gdvProjekt");

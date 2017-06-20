@@ -1,3 +1,8 @@
+#content{
+	position: absolute;
+	top: 0;
+}
+
 .grayscale-80 {
 	filter: grayscale(80%)
 }
@@ -6,25 +11,56 @@
 	filter: grayscale(0%)
 }
 
-#piechart1 path{
+#piechart1 path {
 	fill: #e6c603;
 }
 
-#piechart2 path{
+#piechart2 path {
 	fill: #31961c
 }
 
-#piechart3 path{
+#piechart3 path {
 	fill: #ad1818
 }
 
-#piechart4 path{
+#piechart4 path {
 	fill: #3334dc
 }
 
-path{
+path {
 	stroke: #000000;
 	stroke-width: 2px;
 	cursor: pointer;
 }
 
+#brandSidebarContainer{
+	position: absolute;
+	overflow: visible;
+	right: 10px;
+	top: 0;
+	z-index: 1000
+}
+
+#brandSidebar {
+	top: 60px;
+	position: sticky;
+	width: 80px;
+    opacity: 0.5;
+}
+
+#brandSidebar:hover {
+	opacity: 1;
+}
+
+.brand:hover{
+	filter: grayscale(0%)
+}
+
+
+.brand {
+	filter: grayscale(100%);
+	cursor: pointer;
+    width: 35px;
+    margin-left: 5px;
+    margin-bottom: 10px;
+}

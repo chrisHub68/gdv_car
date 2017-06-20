@@ -5,6 +5,10 @@
 
 		// VIEW
 		
+		$scope.visualizationHeight = angular.element("#visualization").height();
+		$scope.visualizationTopOffset = angular.element("#visualization").offset().top + 100;
+		
+
 		function collapseNavbar() {
 			if (angular.element(".navbar").offset().top > 50) {
 				angular.element(".navbar-fixed-top").addClass("top-nav-collapse");
@@ -53,9 +57,7 @@
 		}
 		
 		$scope.selectBrand = function(event, x) {
-			console.log(event.currentTarget, x);
-//			console.log(countryService.getBrandLanguageValues('Audi'));
-//			console.log("ICH BIN ABER DURCHGELAUFEN");
+
 		}
 		
 		$scope.$watch("selectedCountries", function(){
