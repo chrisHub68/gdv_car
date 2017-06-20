@@ -34,7 +34,6 @@
 		// SELECT COUNTRY
 		
 		$scope.selectedCountries = [];
-		$scope.selectedBrands = ["hallo"];
 		$scope.countriesLoaded = true;
 		
 		function getSelectedCountries(){

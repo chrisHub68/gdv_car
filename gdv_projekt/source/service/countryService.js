@@ -17,6 +17,8 @@ function CountryService($rootScope, $http, JSONService, restService) {
 								var timestamp = month.timestamp.substr(0,4) + "-" + month.timestamp.substr(4,2) + "-" + month.timestamp.substr(6,2);
 								article.months.push({"month" : new Date(timestamp).getMonth(), "views" : month.views});
 							});
+							
+							$rootScope.$broadcast("countries:loaded");
 						});
 					});
 				});

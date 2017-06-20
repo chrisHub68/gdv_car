@@ -1,22 +1,24 @@
 (function(angular) {
 	'use strict';
 	
+	var languageVersions = ["de", "it", "ja", "fr"];
 	var languageColors = {1 :"#e6c603", 2:"#31961c",3:"#ad1818",4:"#3334dc"};
 
 	function ChartController($rootScope, $scope, countryService, restService) {
 		
 		$scope.selectedBrands = [];
-		
-		
-		var index = 1;
-		angular.forEach(countryService.getSelectedCountries(), function(languageVersion,k){
-			initPiechart(countryService.getCountry(languageVersion), index++);
-		});
-		
 
 		// PIE CHART
-
-		function initPiechart(country, index) {
+		$rootScope.$on("countries:loaded", function(){
+			for (var index = 0; index < languageVersions.length; index++) {
+				initPieChart(index + 1, languageVersions[index]);
+			}
+		});
+		
+		function initPieChart(index, languageVersion) {
+			var country = countryService.getCountry(languageVersion);
+			console.log(country + " " + index + " " + languageVersion);
+			
 			google.charts.load("current", {"packages" : [ "corechart" ]});
 			google.charts.setOnLoadCallback(drawChart);
 
@@ -85,7 +87,7 @@
 			        width: "100%",	
 			        colors: colors,
 			        legend: "none", 
-			        bar: { groupWidth: "40%" },
+			        bar: { groupWidth: "7" },
 			        hAxis: {
 			        	textPosition: 'none' 
 			        },
@@ -94,7 +96,14 @@
 			            maxValue: 1000000,
 			            gridlines: { count: 3, color: "#403f3f" },
 			            baselineColor: "#403f3f",
-			        	textStyle:{color: '#FFF'}
+			        	textStyle:{color: '#FFF'},
+			        	viewWindow : {
+			        		minValue: 0,
+				            maxValue: 800000,
+			        	},
+			        
+				       ticks : [0, 200000, 400000, 600000, 800000],
+				       textStyle:{color: '#FFF'},
 			        }
 			        
 			};
