@@ -82,15 +82,20 @@
 			        width: "100%",
 			        colors:["#22AA99", "#62AA99"],
 			        legend: "none", 
-			        bar: { groupWidth: "40%" },
+			        bar: { groupWidth: "7" },
 			        hAxis: {
 			        	textPosition: 'none' 
 			        },
 			        vAxis: {
-			        	minValue: 0,
-			            maxValue: 1000000,
-			            gridlines: { count: 3 },
-			        	textStyle:{color: '#FFF'}
+			        	viewWindow : {
+			        		minValue: 0,
+				            maxValue: 800000,
+			        	},
+			        
+				       ticks : [0, 200000, 400000, 600000, 800000],
+				       textStyle:{color: '#FFF'},
+				       gridlines: {color: "#919191"},
+			           baselineColor: '#919191'
 			        }
 			        
 			};
