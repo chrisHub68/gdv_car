@@ -51,19 +51,17 @@
 					colors:["#22AA99"],
 					pieSliceText: 'label',
 					pieHole: "0.4", 
-					tooltip: {ignoreBounds : true}
+					tooltip: { trigger: 'none' }
 				};
 				
 				function selectHandler() {
-			        var brand = data.getValue(chart.getSelection()[0].row, 0);
-			        $scope.$applyAsync(function(){
-						$.inArray(brand, $scope.selectedBrands) > -1 ? $scope.selectedBrands.splice($scope.selectedBrands.indexOf(brand),1) 
-								: $scope.selectedBrands.push(brand);
-			        });
-			        chart.setSelection();
-			        
-			        drawColumnChart();
-			        drawLinechart();
+				     
+					var selectedItem = chart.getSelection()[0];
+
+		    	       if (selectedItem) {
+		    	    	   var topping = data.getValue(selectedItem.row, 0);
+				    	         console.log(topping);
+		    	       }
 				}
 
 				var chart = new google.visualization.PieChart(document.getElementById("piechart" + index));
@@ -83,11 +81,11 @@
 					chart: { title: "Aufrufzahlen" },
 					backgroundColor : "#000000" ,
 					animation: { duration: 1000, easing: "out" },
-			        height: "100%",
-			        width: "100%",	
+			        height: "270",
+			        width: "300",	
 			        colors: colors,
 			        legend: "none", 
-			        bar: { groupWidth: "7" },
+			        bar: { groupWidth: "8" },
 			        hAxis: {
 			        	textPosition: 'none' 
 			        },
