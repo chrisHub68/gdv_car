@@ -55,16 +55,30 @@
 					colors:[color],
 					pieSliceText: 'label',
 					pieHole: "0.4", 
-					tooltip: { trigger: 'none' }
+					tooltip: { trigger: 'none' },
+					slices: {}
+					
 				};
 				
-				function selectHandler() {
+				function selectHandler() { //TODO: Muss noch fertig gemacht werden
 				     
 					var selectedItem = chart.getSelection()[0];
 
 		    	       if (selectedItem) {
+		    	    	   
 		    	    	   var topping = data.getValue(selectedItem.row, 0);
-				    	         console.log(topping);
+		    	    	   var itemRow = selectedItem.row;
+		    	    	   
+				    	   console.log(topping);
+				    	   console.log(itemRow);
+				    	       
+				    	   options.slices[itemRow] = {offset: 0.1};
+				    	   
+				    	   console.log(options);
+				    	   
+				    	   var datachart = new google.visualization.PieChart(document.getElementById("piechart" + index));
+			    	       datachart.draw(data, options);
+				    	  
 		    	       }
 				}
 
