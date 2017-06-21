@@ -3,6 +3,7 @@
 	
 	var languageVersions = ["de", "it", "ja", "fr"];
 	var languageColors = {1 :"#e6c603", 2:"#31961c",3:"#ad1818",4:"#3334dc"};
+	var versionColors = {"de" :"#e6c603", "it":"#31961c", "ja":"#ad1818", "fr":"#3334dc"};
 
 	function ChartController($rootScope, $scope, countryService, restService) {
 		
@@ -43,12 +44,15 @@
 				
 				
 				var data = google.visualization.arrayToDataTable(cars);
+				
+				var color = [];
+				color.push(versionColors[languageVersion]);
 
 				var options = {
 					chartArea : {'width': '80%', 'height': '100%'},
 					backgroundColor : {fill:"#000000"},
 					legend : "none",
-					colors:["#22AA99"],
+					colors:[color],
 					pieSliceText: 'label',
 					pieHole: "0.4", 
 					tooltip: { trigger: 'none' }
