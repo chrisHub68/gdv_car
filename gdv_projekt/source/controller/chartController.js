@@ -8,6 +8,7 @@
 	function ChartController($rootScope, $scope, countryService, restService) {
 		
 		$scope.selectedBrands = [];
+		$scope.selectedSlices = { "de" : [], "it" : [], "ja" : [], "fr": [] };
 
 		// PIE CHART
 		$rootScope.$on("countries:loaded", function(){
@@ -57,30 +58,29 @@
 					pieSliceText: 'label',
 					pieHole: "0.4", 
 					tooltip: { trigger: 'none' },
-					slices: {}
-					
+					slices: {}		
 				};
 				
+				for(var i = 0; i < $scope.selectedSlices[languageVersion].length; i++) {
+					options.slices[$scope.selectedSlices[languageVersion][i]] = {offset: 0.1};		
+				}
+			
+				
 				function selectHandler() { //TODO: Muss noch fertig gemacht werden
-				     
-					var selectedItem = chart.getSelection()[0];
+	     
+		    	   var selectedItem = chart.getSelection()[0];
 
 		    	       if (selectedItem) {
-		    	    	   
-		    	    	   var topping = data.getValue(selectedItem.row, 0);
-		    	    	   var itemRow = selectedItem.row;
-		    	    	   
-				    	   console.log(topping);
-				    	   console.log(itemRow);
-				    	       
-				    	   options.slices[itemRow] = {offset: 0.1};
-				    	   
-				    	   console.log(options);
-				    	   
-				    	   var datachart = new google.visualization.PieChart(document.getElementById("piechart" + index));
-			    	       datachart.draw(data, options);
-				    	  
+		    	    	   if($scope.selectedSlices[languageVersion].indexOf(selectedItem.row) == -1) {
+		    	    		   $scope.selectedSlices[languageVersion].push(selectedItem.row);
+		    	    	   } else {
+		    	    		   options.slices[$scope.selectedSlices[languageVersion][selectedItem.row]] = {offset: 0};
+		    	    		   $scope.selectedSlices[languageVersion].splice($scope.selectedSlices[languageVersion].indexOf(selectedItem.row),1);
+		    	    	   }
 		    	       }
+		    	       
+		    	       chart.getSelection();
+		    	       initPieChart(index, languageVersion);
 				}
 
 				var chart = new google.visualization.PieChart(document.getElementById("piechart" + index));
