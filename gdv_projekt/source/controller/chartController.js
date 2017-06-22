@@ -11,6 +11,7 @@
 
 		// PIE CHART
 		$rootScope.$on("countries:loaded", function(){
+			console.log("load");
 			for (var index = 0; index < languageVersions.length; index++) {
 				initPieChart(index + 1, languageVersions[index]);
 			}
@@ -99,8 +100,6 @@
 					chart: { title: "Aufrufzahlen" },
 					backgroundColor : "#000000" ,
 					animation: { duration: 1000, easing: "out" },
-			        height: "270",
-			        width: "300",	
 			        colors: colors,
 			        legend: "none", 
 			        bar: { groupWidth: "8" },
@@ -111,15 +110,14 @@
 			        	minValue: 0,
 			            maxValue: 1000000,
 			            gridlines: { count: 3, color: "#403f3f" },
-			            baselineColor: "#403f3f",
-			        	textStyle:{color: '#FFF'},
+			            baselineColor: "#FFFFFF",
+			        	textStyle:{color: "#af9e9e"},
 			        	viewWindow : {
 			        		minValue: 0,
 				            maxValue: 800000,
 			        	},
 			        
 				       ticks : [0, 200000, 400000, 600000, 800000],
-				       textStyle:{color: '#FFF'},
 			        }
 			        
 			};

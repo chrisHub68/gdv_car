@@ -9,9 +9,6 @@
 	display: inline-block;
 	width: 100px;
 	height: 70px;
-	margin-right: 15px;
-	cursor: pointer;
-	transition: 0.3s
 }
 
 .flag-container:hover {

@@ -4,6 +4,30 @@
 	width: 100%;
 }
 
+#visualization{
+	width: 1000px;
+}
+
+.columnchart{
+	height: 250px;
+	margin-bottom: 10px;
+}
+
+.columnchart > div{
+	padding-left: 15px;
+}
+
+.columnchart-container{
+	position: relative;
+	max-height: 150px;
+	overflow:hidden;
+}
+
+.columnchart-container > div {
+    position: relative;
+    top: -75px;
+}
+
 .grayscale-80 {
 	filter: grayscale(80%)
 }
