@@ -1,31 +1,88 @@
-#content{
+.relative {
+	position: relative;
+}
+
+.absolute {
+	position: absolute;
+}
+
+.montserrat {
+	font-family: "Montserrat"
+}
+
+#content {
 	position: absolute;
 	top: 0;
 	width: 100%;
 }
 
-#visualization{
+.country-flag{
+	border: 1px solid #486157 !important;
+	display: block !important;
+	width: 100.7% !important;
+	height: 109% !important;
+}
+
+#tooltip-sidebar {
+	position: fixed;
+	width: 200px;
+	height: 250px;
+	background-color: #131212; 
+	margin: auto;
+	top: 0;
+	bottom: 0; 
+	padding: 20px;
+	text-align: center;
+}
+
+#tooltip-sidebar > img{
+	width: 55px;
+}
+
+.brand-origin-flag{
+	width: 20px;
+    border: none;
+    position: relative;
+    top: -2px;
+}
+
+.tooltip-text{
+	text-align: left;
+	font-family: "Montserrat";
+}
+
+#visualization {
 	width: 1000px;
 }
 
-.columnchart{
+.languagecode-label {
+	left: -50px;
+	line-height: 8;
+}
+
+.columnchart {
 	height: 250px;
 	margin-bottom: 10px;
 }
 
-.columnchart > div{
+.columnchart>div {
 	padding-left: 15px;
 }
 
-.columnchart-container{
+.columnchart-container {
 	position: relative;
 	max-height: 150px;
-	overflow:hidden;
+	overflow-y: hidden;
 }
 
-.columnchart-container > div {
-    position: relative;
-    top: -75px;
+.columnchart-container>span {
+	position: absolute;
+	left: -10px;
+}
+
+.columnchart-container>div {
+	position: relative;
+	top: -75px;
 }
 
 .grayscale-80 {
@@ -42,7 +99,7 @@ path {
 	cursor: pointer;
 }
 
-#brandSidebarContainer{
+#brandSidebarContainer {
 	position: absolute;
 	overflow: visible;
 	right: 10px;
@@ -54,22 +111,21 @@ path {
 	top: 60px;
 	position: sticky;
 	width: 80px;
-    opacity: 0.5;
+	opacity: 0.5;
 }
 
 #brandSidebar:hover {
 	opacity: 1;
 }
 
-.brand:hover{
+.brand:hover {
 	filter: grayscale(0%)
 }
-
 
 .brand {
 	filter: grayscale(100%);
 	cursor: pointer;
-    width: 35px;
-    margin-left: 5px;
-    margin-bottom: 10px;
+	width: 35px;
+	margin-left: 5px;
+	margin-bottom: 10px;
 }

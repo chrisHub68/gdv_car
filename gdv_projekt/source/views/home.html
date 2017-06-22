@@ -12,6 +12,16 @@
 		</div>
 	</div>
 
+	<!-- Tooltip -->
+	<div id="tooltip-sidebar" ng-controller="TooltipController">
+		<img ng-src="{{source}}">
+		<hr>
+		<div class="tooltip-text">
+			<label>Herkunft:</label> <span class="flag-icon flag-icon-de brand-origin-flag"></span><br>
+			<label>Marke:</label> {{name}} 
+			<label>Aufrufzahl:</label> {{views}}
+		</div>
+	</div>
 
 	<div id="content">
 
@@ -65,80 +75,92 @@
 				<div class="row">
 					<div class="col-lg-3 col-md-3 ">
 						<div class="flag-container">
-							<span class="flag-icon flag-icon-de"></span>
+							<span class="flag-icon flag-icon-de country-flag"></span>
 						</div>
-						<br><br>
+						<br> <br>
 						<div style="height: 250px;" id="piechart1"></div>
 					</div>
 					<div class="col-lg-3 col-md-3 ">
 						<div class="flag-container">
-							<span class="flag-icon flag-icon-it"></span>
+							<span class="flag-icon flag-icon-it country-flag"></span>
 						</div>
-						<br><br>
+						<br> <br>
 						<div style="height: 250px;" id="piechart2"></div>
 					</div>
 					<div class="col-lg-3 col-md-3 ">
 						<div class="flag-container">
-							<span class="flag-icon flag-icon-jp"></span>
+							<span class="flag-icon flag-icon-jp country-flag"></span>
 						</div>
-						<br><br>
+						<br> <br>
 						<div style="height: 250px;" id="piechart3"></div>
 					</div>
 					<div class="col-lg-3 col-md-3 ">
 						<div class="flag-container">
-							<span class="flag-icon flag-icon-fr"></span>
+							<span class="flag-icon flag-icon-fr country-flag"></span>
 						</div>
-						<br><br>
+						<br> <br>
 						<div style="height: 250px;" id="piechart4"></div>
 					</div>
 				</div>
 
 				<!-- DE -->
-				<div class="row columnchart-container">
-					<div class="col-lg-3 col-md-3 columnchart" id="columnchart_de_1"
-						ng-init="initColumnChart(1, 'de')"></div>
-					<div class="col-lg-3 col-md-3 columnchart" id="columnchart_de_2"
-						ng-init="initColumnChart(2, 'de')"></div>
-					<div class="col-lg-3 col-md-3 columnchart" id="columnchart_de_3"
-						ng-init="initColumnChart(3, 'de')"></div>
-					<div class="col-lg-3 col-md-3 columnchart" id="columnchart_de_4"
-						ng-init="initColumnChart(4, 'de')"></div>
+				<div class="relative">
+					<label class="absolute montserrat languagecode-label">DE</label>
+					<div class="row columnchart-container">
+						<div class="col-lg-3 col-md-3 columnchart" id="columnchart_de_1"
+							ng-init="initColumnChart(1, 'de')"></div>
+						<div class="col-lg-3 col-md-3 columnchart" id="columnchart_de_2"
+							ng-init="initColumnChart(2, 'de')"></div>
+						<div class="col-lg-3 col-md-3 columnchart" id="columnchart_de_3"
+							ng-init="initColumnChart(3, 'de')"></div>
+						<div class="col-lg-3 col-md-3 columnchart" id="columnchart_de_4"
+							ng-init="initColumnChart(4, 'de')"></div>
+					</div>
 				</div>
 
 				<!-- IT -->
-				<div class="row columnchart-container">
-					<div class="col-lg-3 col-md-3 columnchart" id="columnchart_it_1"
-						ng-init="initColumnChart(1, 'it')"></div>
-					<div class="col-lg-3 col-md-3 columnchart" id="columnchart_it_2"
-						ng-init="initColumnChart(2, 'it')"></div>
-					<div class="col-lg-3 col-md-3 columnchart" id="columnchart_it_3"
-						ng-init="initColumnChart(3, 'it')"></div>
-					<div class="col-lg-3 col-md-3 columnchart" id="columnchart_it_4"
-						ng-init="initColumnChart(4, 'it')"></div>
+				<div class="relative">
+					<label class="absolute montserrat languagecode-label">IT</label>
+					<div class="row columnchart-container">
+						<div class="col-lg-3 col-md-3 columnchart" id="columnchart_it_1"
+							ng-init="initColumnChart(1, 'it')"></div>
+						<div class="col-lg-3 col-md-3 columnchart" id="columnchart_it_2"
+							ng-init="initColumnChart(2, 'it')"></div>
+						<div class="col-lg-3 col-md-3 columnchart" id="columnchart_it_3"
+							ng-init="initColumnChart(3, 'it')"></div>
+						<div class="col-lg-3 col-md-3 columnchart" id="columnchart_it_4"
+							ng-init="initColumnChart(4, 'it')"></div>
+					</div>
 				</div>
 
 				<!-- JA -->
-				<div class="row columnchart-container">
-					<div class="col-lg-3 col-md-3 columnchart" id="columnchart_ja_1"
-						ng-init="initColumnChart(1, 'ja')"></div>
-					<div class="col-lg-3 col-md-3 columnchart" id="columnchart_ja_2"
-						ng-init="initColumnChart(2, 'ja')"></div>
-					<div class="col-lg-3 col-md-3 columnchart" id="columnchart_ja_3"
-						ng-init="initColumnChart(3, 'ja')"></div>
-					<div class="col-lg-3 col-md-3 columnchart" id="columnchart_ja_4"
-						ng-init="initColumnChart(4, 'ja')"></div>
+				<div class="relative">
+					<label class="absolute montserrat languagecode-label">JA</label>
+					<div class="row columnchart-container">
+						<div class="col-lg-3 col-md-3 columnchart" id="columnchart_ja_1"
+							ng-init="initColumnChart(1, 'ja')"></div>
+						<div class="col-lg-3 col-md-3 columnchart" id="columnchart_ja_2"
+							ng-init="initColumnChart(2, 'ja')"></div>
+						<div class="col-lg-3 col-md-3 columnchart" id="columnchart_ja_3"
+							ng-init="initColumnChart(3, 'ja')"></div>
+						<div class="col-lg-3 col-md-3 columnchart" id="columnchart_ja_4"
+							ng-init="initColumnChart(4, 'ja')"></div>
+					</div>
 				</div>
 
 				<!-- FR -->
-				<div class="row columnchart-container">
-					<div class="col-lg-3 col-md-3 columnchart" id="columnchart_fr_1"
-						ng-init="initColumnChart(1, 'fr')"></div>
-					<div class="col-lg-3 col-md-3 columnchart" id="columnchart_fr_2"
-						ng-init="initColumnChart(2, 'fr')"></div>
-					<div class="col-lg-3 col-md-3 columnchart" id="columnchart_fr_3"
-						ng-init="initColumnChart(3, 'fr')"></div>
-					<div class="col-lg-3 col-md-3 columnchart" id="columnchart_fr_4"
-						ng-init="initColumnChart(4, 'fr')"></div>
+				<div class="relative">
+					<label class="absolute montserrat languagecode-label">FR</label>
+					<div class="row columnchart-container">
+						<div class="col-lg-3 col-md-3 columnchart" id="columnchart_fr_1"
+							ng-init="initColumnChart(1, 'fr')"></div>
+						<div class="col-lg-3 col-md-3 columnchart" id="columnchart_fr_2"
+							ng-init="initColumnChart(2, 'fr')"></div>
+						<div class="col-lg-3 col-md-3 columnchart" id="columnchart_fr_3"
+							ng-init="initColumnChart(3, 'fr')"></div>
+						<div class="col-lg-3 col-md-3 columnchart" id="columnchart_fr_4"
+							ng-init="initColumnChart(4, 'fr')"></div>
+					</div>
 				</div>
 
 			</div>

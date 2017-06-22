@@ -15,13 +15,6 @@
 	filter: grayscale(0%)
 }
 
-.flag-icon {
-	border: 1px solid #486157;
-	display: block;
-	width: 100.7%;
-	height: 109%;
-}
-
 .flag-icon:before {
 	content: "\00a0"
 }
