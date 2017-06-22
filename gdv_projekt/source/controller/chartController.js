@@ -17,6 +17,7 @@
 			}
 		});
 		
+		
 		function initPieChart(index, languageVersion) {
 			var country = countryService.getCountry(languageVersion);
 
