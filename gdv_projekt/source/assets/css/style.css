@@ -6,6 +6,10 @@
 	position: absolute;
 }
 
+.block{
+	display: block;
+}
+
 .montserrat {
 	font-family: "Montserrat"
 }

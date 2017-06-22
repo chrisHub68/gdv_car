@@ -67,7 +67,7 @@
 				}
 			
 				
-				function selectHandler() { //TODO: Muss noch fertig gemacht werden
+				function selectHandler() {
 	     
 		    	   var selectedItem = chart.getSelection()[0];
 
@@ -83,10 +83,15 @@
 		    	       chart.getSelection();
 		    	       initPieChart(index, languageVersion);
 				}
+				
+				function mouseoverHandler(event){
+					if(event.row) $rootScope.$broadcast("brand:hovered" , {brandName:data.getValue(event.row,0), languageVersion:languageVersion});
+				}
 
 				var chart = new google.visualization.PieChart(document.getElementById("piechart" + index));
 				chart.draw(data, options);
 				google.visualization.events.addListener(chart, "select" , selectHandler);
+				google.visualization.events.addListener(chart, "onmouseover" , mouseoverHandler);
 			}
 		}
 		
