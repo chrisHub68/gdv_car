@@ -7,6 +7,7 @@
 		$scope.languageVersion = "";
 		$scope.flagClass = "";
 		$scope.views = 0;
+		$scope.left = "-200px";
 		
 		$scope.$on("brand:hovered", function(event, value){
 			$scope.source = "";
@@ -14,6 +15,7 @@
 			$scope.languageVersion = "";
 			$scope.flagClass = "";
 			$scope.views = 0;
+			$scope.left = "0px";
 			
 			$scope.$applyAsync(function(){
 				$scope.name = value.brandName;
@@ -26,6 +28,18 @@
 				angular.forEach(countryService.getBrandLanguageValues(value.brandName), function(v,k){
 					$scope.views += v;
 				});
+			});
+		});
+		
+		$scope.$on("brand:out", function(){
+			setTimeout(function(){},1000)
+			$socpe.applyAsync(function(){
+				$scope.source = "";
+				$scope.name = "";
+				$scope.languageVersion = "";
+				$scope.flagClass = "";
+				$scope.views = 0;
+				$scope.left = "-200px";
 			});
 		});
 	}
