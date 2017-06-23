@@ -1,0 +1,39 @@
+{
+	"languageVersion" : "de",
+	"images" :	[
+			 {
+				 "brand" : "BMW",
+				 "URL"	:  "assets/img/brands/BMW.jpg"
+			 },
+			 
+			 {
+				 "brand" : "Opel",
+				 "URL"	:  "assets/img/brands/Opel.jpg"
+			 },
+			 
+			 {
+				 "brand" : "Mercedes-Benz",
+				 "URL"	:  "assets/img/brands/Mercedes-Benz.jpg"
+			 },
+			 
+			 {
+				 "brand" : "Volkswagen",
+				 "URL"	:  "assets/img/brands/VW.jpg"
+			 },
+			 
+			 {
+				 "brand" : "Audi",
+				 "URL"	:  "assets/img/brands/Audi.jpg"
+			 },
+			 
+			 {
+				 "brand" : "Smart",
+				 "URL"	:  "assets/img/brands/Smart.jpg"
+			 },
+			 
+			 {
+				 "brand" : "Porsche",
+				 "URL"	:  "assets/img/brands/Porsche.jpg"
+			 }
+	 ]
+}

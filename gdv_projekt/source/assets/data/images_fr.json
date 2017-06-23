@@ -1,0 +1,29 @@
+{
+	"languageVersion" : "fr",
+	"images" : [
+			 {
+				 "brand" : "Citroën",
+				 "URL"	:  "assets/img/brands/Citroen.jpg"
+			 },
+			 
+			 {
+				 "brand" : "Ligier",
+				 "URL"	:  "assets/img/brands/Ligier.jpg"
+			 },
+			 
+			 {
+				 "brand" : "Peugeot",
+				 "URL"	:  "assets/img/brands/Peugot.jpg"
+			 },
+			 
+			 {
+				 "brand" : "Renault",
+				 "URL"	:  "assets/img/brands/Renault.jpg"
+			 },
+			 
+			 {
+				 "brand" : "Bugatti",
+				 "URL"	:  "assets/img/brands/Bugatti.jpg"
+			 }
+	]
+}

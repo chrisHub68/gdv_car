@@ -1,0 +1,59 @@
+{
+	"languageVersion" : "ja",
+	"images" : [
+			{
+				 "brand" : "Honda",
+				 "URL"	:  "assets/img/brands/Honda.jpg"
+			 },
+			 
+			 {
+				 "brand" : "Mitsubishi",
+				 "URL"	:  "assets/img/brands/Mitsubishi.jpg"
+			 },
+			 
+			 {
+				 "brand" : "Nissan",
+				 "URL"	:  "assets/img/brands/Nissan.jpg"
+			 },
+			 
+			 {
+				 "brand" : "Suzuki",
+				 "URL"	:  "assets/img/brands/Suzuki.jpg"
+			 },
+			 
+			 {
+				 "brand" : "Toyota",
+				 "URL"	:  "assets/img/brands/Toyota.jpg"
+			 },
+			 
+			 {
+				 "brand" : "Acura",
+				 "URL"	:  "assets/img/brands/Acura.jpg"
+			 },
+			 
+			 {
+				 "brand" : "Daihatsu",
+				 "URL"	:  "assets/img/brands/Daihatsu.jpg"
+			 },
+			 
+			 {
+				 "brand" : "Isuzu",
+				 "URL"	:  "assets/img/brands/Isuzu.jpg"
+			 },
+			 
+			 {
+				 "brand" : "Lexus",
+				 "URL"	:  "assets/img/brands/Lexus.jpg"
+			 },
+			 
+			 {
+				 "brand" : "Mazda",
+				 "URL"	:  "assets/img/brands/Mazda.jpg"
+			 },
+			 
+			 {
+				 "brand" : "Subaru",
+				 "URL"	:  "assets/img/brands/Subaru.jpg"
+			 }
+	]
+}

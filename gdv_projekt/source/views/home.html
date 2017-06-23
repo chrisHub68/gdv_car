@@ -6,7 +6,7 @@
 		ng-style="{'height': visualizationHeight, 'top' : visualizationTopOffset}">
 
 		<div id="brandSidebar" ng-controller="BrandController">
-			<img class="brand" ng-repeat="brand in brands track by $index"
+			<img class="brand" ng-repeat="brand in images_all track by $index"
 				title="{{brand.brand}}" src="{{brand.URL}}"
 				ng-click="selectBrand($event, brand)">
 		</div>

@@ -1,0 +1,39 @@
+{
+	"languageVersion" : "it", 
+	"images" : [
+			 {
+				 "brand" : "Ferrari",
+				 "URL"	:  "assets/img/brands/Ferrari.jpg"
+			 },
+			 
+			 {
+				 "brand" : "Fiat",
+				 "URL"	:  "assets/img/brands/Fiat.jpg"
+			 },
+			 
+			 {
+				 "brand" : "Lamborghini",
+				 "URL"	:  "assets/img/brands/Lamborghini.jpg"
+			 },
+			 
+			 {
+				 "brand" : "Lancia",
+				 "URL"	:  "assets/img/brands/Lancia.jpg"
+			 },
+			 
+			 {
+				 "brand" : "Maserati",
+				 "URL"	:  "assets/img/brands/Maserati.jpg"
+			 },
+			 
+			 {
+				 "brand" : "Alfa Romeo",
+				 "URL"	:  "assets/img/brands/Alfa Romeo.jpg"
+			 },
+			 
+			 {
+				 "brand" : "Pagani",
+				 "URL"	:  "assets/img/brands/Pagani.jpg"
+			 }
+	]
+}

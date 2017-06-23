@@ -236,6 +236,7 @@
 			columnchart.draw(google.visualization.arrayToDataTable(brands), columnchartOptions);
 		}
 	}
+	
 	var app = angular.module("gdvProjekt");
 	app.controller("ChartController", [ '$rootScope', '$scope', 'countryService', 'restService',
 			ChartController ]);
