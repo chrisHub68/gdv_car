@@ -1,8 +1,8 @@
 (function(angular) {
 	'use strict';
 
-	function TooltipController($rootScope,$scope,countryService) {
-		$scope.source = "assets/img/brands/Mercedes-Benz.jpg";
+	function TooltipController($rootScope,$scope,countryService, imageService) {
+		$scope.source = "";
 		$scope.name = "Mercedes Benz";
 		$scope.languageVersion = "";
 		$scope.flagClass = "";
@@ -20,6 +20,7 @@
 			$scope.$applyAsync(function(){
 				$scope.name = value.brandName;
 				$scope.languageVersion = value.languageVersion;
+				$scope.source = imageService.getImageURL(value.brandName);
 				
 				if(value.languageVersion == "ja") value.languageVersion = "jp";
 				
@@ -28,7 +29,7 @@
 				angular.forEach(countryService.getBrandLanguageValues(value.brandName), function(v,k){
 					$scope.views += v;
 				});
-			});
+			});		
 		});
 		
 		$scope.$on("brand:out", function(){
@@ -45,6 +46,6 @@
 	}
 	
 	var app = angular.module("gdvProjekt");
-	app.controller("TooltipController", ['$rootScope','$scope', 'countryService', TooltipController]);
+	app.controller("TooltipController", ['$rootScope','$scope', 'countryService','imageService', TooltipController]);
 	
 })(window.angular);

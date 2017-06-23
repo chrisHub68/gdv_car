@@ -1,15 +1,15 @@
 function ImageService($rootScope, JSONService) {
 	
-	var _images = {"de" : {} , "it" : {}, "ja" : {}, "fr" : {}};
+	var _images_country = {"de" : {} , "it" : {}, "ja" : {}, "fr" : {}};
 	var _images_All = [];
 	
 	
 	
-	angular.forEach(_images, function(images, languageVersion){
+	angular.forEach(_images_country, function(images, languageVersion){
 		_getImageJSON(languageVersion).then(function(data){
-			_images[languageVersion] = data;
+			_images_country[languageVersion] = data;
 				
-			angular.forEach(_images[languageVersion]["images"], function(value, key) {
+			angular.forEach(_images_country[languageVersion]["images"], function(value, key) {
 				_images_All.push(value);
 			});		
 		});	
@@ -24,12 +24,24 @@ function ImageService($rootScope, JSONService) {
 		}
 	}
 	
-	this.getImages = function getImages() {
-		return _images;
+	this.getImagesInCountry = function getImages() {
+		return _images_country;
 	}
 	
-	this.getAllImages = function () {
+	this.getAllImages = function() {
 		return _images_All;
+	}
+	
+	this.getImageURL = function(brandName) {
+		var url;
+		
+		angular.forEach(_images_All, function(image, image_key) {
+			if(image["brand"] == brandName){
+				url = image["URL"]
+			}
+		});
+		
+		return url;
 	}
 }
 
