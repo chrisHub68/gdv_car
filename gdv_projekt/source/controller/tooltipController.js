@@ -19,6 +19,7 @@
 			
 			$scope.$applyAsync(function(){
 				$scope.name = value.brandName;
+				console.log($scope.name)
 				$scope.languageVersion = value.languageVersion;
 				$scope.source = imageService.getImageURL(value.brandName);
 				

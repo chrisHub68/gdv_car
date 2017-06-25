@@ -19,7 +19,7 @@
 		<div class="tooltip-text">
 			<label>Herkunft:</label> <span ng-class="flagClass"></span><br>
 			<label>Marke:</label> {{name}} <br>
-			<label>Aufrufzahl:</label> {{views}} <br>
+			<label>Gesamtaufrufe:</label> {{views}} <br>
 		</div>
 	</div>
 
@@ -72,12 +72,20 @@
 		<section id="visualization"
 			class="container content-section text-center">
 			<div class="row" ng-controller="ChartController">
+				<!-- BEschriftung -->
+				<div class="row">
+					<div class="col-lg-3 col-md-3 "><label class="montserrat languagecode-label">Deutsche Autos</label></div>
+					<div class="col-lg-3 col-md-3 "><label class="montserrat languagecode-label">Italienische Autos</label></div>
+					<div class="col-lg-3 col-md-3 "><label class="montserrat languagecode-label">Japanische Autos</label></div>
+					<div class="col-lg-3 col-md-3 "><label class="montserrat languagecode-label">Französische Autos</label></div>
+				</div>
+				
 				<div class="row">
 					<div class="col-lg-3 col-md-3 ">
 						<div class="flag-container">
 							<span class="flag-icon flag-icon-de country-flag"></span>
 						</div>
-						<br> <br>
+						<br><br>
 						<div style="height: 250px;" id="piechart1"></div>
 					</div>
 					<div class="col-lg-3 col-md-3 ">
