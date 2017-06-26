@@ -90,6 +90,28 @@ function CountryService($rootScope, $http, JSONService, restService) {
 
 		return value.language;
 	}
+	
+	this.getCars = function() {
+		
+		var brandValues = {"de" : [] , "it" : [], "ja" : [], "fr" : []};
+		
+		angular.forEach(_countries, function(country, name){
+			angular.forEach(country["cars"], function(articles, brandName){
+				
+				angular.forEach(articles, function(carValue, carName) {
+					
+					switch(country["name"]) {
+						case "Deutschland" : brandValues["de"].push(carName); break;
+						case "Italien" :brandValues["it"].push(carName);  break;
+						case "Japan" : brandValues["ja"].push(carName); break;
+						case "Frankreich" : brandValues["fr"].push(carName); break;
+					}
+				})
+			});
+		});
+		
+		return brandValues;
+	}
 }
 
 var app = angular.module("gdvProjekt");
