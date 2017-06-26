@@ -147,15 +147,14 @@
 				allBrands = countryService.getCars();
 
 				
-				console.log(Object.keys(allBrands[languageVersion]).length);
 				for(var i = 0; i < Object.keys(allBrands[languageVersion]).length ;i++){
 
 					tempBrands = countryService.getBrandLanguageValues(allBrands[languageVersion][i],languageVersion);					
-//					console.log(tempBrands);
+
 					result += tempBrands[languageVersion];
 				}
 				
-				console.log(result)
+
 				
 				return result/Object.keys(allBrands[languageVersion]).length;
 			}
