@@ -29,8 +29,8 @@
 
 #tooltip-sidebar {
 	position: fixed;
-	width: 200px;
-	height: 250px;
+	width: 230px;
+	height: 230px;
 	background-color: #131212; 
 	margin: auto;
 	top: 0;
@@ -101,6 +101,10 @@ path {
 	stroke: #000000;
 	stroke-width: 2px;
 	cursor: pointer;
+}
+
+.columnchart g g g rect { 
+	cursor: pointer; 
 }
 
 #brandSidebarContainer {
