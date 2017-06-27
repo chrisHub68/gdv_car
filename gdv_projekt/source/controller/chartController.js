@@ -12,7 +12,6 @@
 
 		// PIE CHART
 		$rootScope.$on("countries:loaded", function(){
-			console.log("load");
 			for (var index = 0; index < languageVersions.length; index++) {
 				initPieChart(index + 1, languageVersions[index]);
 			}
@@ -181,7 +180,7 @@
 													  ["Toyota", countryService.getBrandLanguageValues("Toyota").de,getCountryAverage("de")], ["Acura", countryService.getBrandLanguageValues("Acura").de,getCountryAverage("de")], 
 													  ["Daihatsu", countryService.getBrandLanguageValues("Daihatsu").de,getCountryAverage("de")], ["Isuzu",countryService.getBrandLanguageValues("Isuzu").de,getCountryAverage("de")], 
 													  ["Isuzu", countryService.getBrandLanguageValues("Isuzu").de,getCountryAverage("de")], ["Mazda", countryService.getBrandLanguageValues("Mazda").de,getCountryAverage("de")], 
-													  ["Acura", countryService.getBrandLanguageValues("Acura"),getCountryAverage("de").de]); break;
+													  ["Acura", countryService.getBrandLanguageValues("Acura"),getCountryAverage("de")]); break;
 				
 				
 				case "columnchart_de_4" : brands.push(["Land", "Aufrufe","Average"], ["Ligier", countryService.getBrandLanguageValues("Ligier").de,getCountryAverage("de")], ["Peugeot", countryService.getBrandLanguageValues("Peugeot").de,getCountryAverage("de")], 
@@ -255,6 +254,7 @@
 													  ["Citroën", countryService.getBrandLanguageValues("Citroën").fr,getCountryAverage("fr")]); break;
 				
 				}
+					
 				var data = google.visualization.arrayToDataTable(brands);
 				
 				columnchart.draw(data, columnchartOptions);
