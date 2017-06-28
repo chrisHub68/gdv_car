@@ -2,8 +2,8 @@
 	'use strict';
 	
 	var languageVersions = ["de", "it", "ja", "fr"];
-	var languageColors = {1 :"#e6c603", 2:"#31961c",3:"#ad1818",4:"#00267f"};
-	var versionColors = {"de" :"#e6c603", "it":"#31961c", "ja":"#ad1818", "fr":"#00267f"};
+	var languageColors = {1 :"#e6c603", 2:"#31961c",3:"#ad1818",4:"#003fd6"};
+	var versionColors = {"de" :"#e6c603", "it":"#31961c", "ja":"#ad1818", "fr":"#003fd6"};
 
 	function ChartController($rootScope, $scope, countryService, restService) {
 		
