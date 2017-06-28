@@ -9,6 +9,7 @@
 		
 		$scope.selectedBrands = [];
 		$scope.selectedSlices = { "de" : [], "it" : [], "ja" : [], "fr": [] };
+		$scope.selectedCars = { "de" : [], "it" : [], "ja" : [], "fr": [] };
 
 		// PIE CHART
 		$rootScope.$on("countries:loaded", function(){
@@ -58,6 +59,7 @@
 					pieSliceText: 'label',
 					pieHole: "0.3", 
 					tooltip: { trigger: 'none' },
+					pieSliceTextStyle: {color: 'black'},
 					slices: {}		
 				};
 				
@@ -69,16 +71,22 @@
 				function selectHandler() {
 	     
 		    	   var selectedItem = chart.getSelection()[0];
+		    	   var selectedItemName = data.getValue(selectedItem.row,0);
 
 		    	       if (selectedItem) {
 		    	    	   if($scope.selectedSlices[languageVersion].indexOf(selectedItem.row) == -1) {
 		    	    		   $scope.selectedSlices[languageVersion].push(selectedItem.row);
+		    	    		   $scope.selectedCars[languageVersion].push(selectedItemName);
 		    	    	   } else {
 		    	    		   options.slices[$scope.selectedSlices[languageVersion][selectedItem.row]] = {offset: 0};
 		    	    		   $scope.selectedSlices[languageVersion].splice($scope.selectedSlices[languageVersion].indexOf(selectedItem.row),1);
+		    	    		   $scope.selectedCars[languageVersion].splice($scope.selectedCars[languageVersion].indexOf(selectedItemName),1);
 		    	    	   }
+		    	    	   
+		    	    	   $scope.$watch($scope.selectedCars, function() {
+		   					console.log($scope.selectedCars)
+		    	    	   });
 		    	       }
-		    	       
 		    	       chart.getSelection();
 		    	       initPieChart(index, languageVersion);
 				}
@@ -107,8 +115,10 @@
 					animation: { duration: 1000, easing: "out" },
 			        colors: colors,
 			        legend: "none", 
-			        bar: { groupWidth: "8" },
+			        bar: { groupWidth: "8" ,stroke: "#fff",
+			              strokeWidth: 1,},
 			        tooltip: { trigger: 'none' },
+			        enableInteractivity: false,
 			        hAxis: {
 			        	textPosition: 'none' 
 			        },
@@ -127,6 +137,7 @@
 			        },
 			        seriesType: 'bars',
 			        series: {1: {type: 'line'}},
+			    
 			        
 			};
 			

@@ -23,7 +23,7 @@ function CountryService($rootScope, $http, JSONService, restService) {
 			});
 		});
 		
-		setTimeout(function(){$rootScope.$broadcast("countries:loaded");},10000);
+		setTimeout(function(){$rootScope.$broadcast("countries:loaded");},3000);
 	});
 	
 	function _getCountryJSON(languageVersion){
